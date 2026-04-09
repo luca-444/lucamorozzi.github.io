@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luca Morozzi — Imprenditore & CFO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --bg2: #111111;
+    --surface: #161616;
+    --accent: #c8a96e;
+    --accent2: #7eb8c8;
+    --text: #e8e4dc;
+    --muted: #6b6660;
+    --border: rgba(200,169,110,0.15);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* Custom cursor */
+  .cursor {
+    position: fixed;
+    width: 8px; height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%,-50%);
+    transition: transform 0.1s ease;
+  }
+  .cursor-ring {
+    position: fixed;
+    width: 32px; height: 32px;
+    border: 1px solid rgba(200,169,110,0.4);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%,-50%);
+    transition: transform 0.15s ease, width 0.3s, height 0.3s, border-color 0.3s;
+  }
+
+  /* Noise overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.4;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+  }
+
+  .hero-left {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 4rem;
+    z-index: 2;
+  }
+
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    filter: grayscale(30%) contrast(1.1);
+    opacity: 0.7;
+    transform: scale(1.05);
+    animation: slowZoom 20s ease-out forwards;
+  }
+
+  @keyframes slowZoom {
+    to { transform: scale(1); }
+  }
+
+  .hero-right::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, var(--bg) 0%, transparent 30%),
+                linear-gradient(to top, var(--bg) 0%, transparent 40%);
+  }
+
+  .hero-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.3s ease forwards;
+  }
+
+  .hero-name {
+    font-size: clamp(3.5rem, 7vw, 6rem);
+    font-weight: 300;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.5s ease forwards;
+  }
+
+  .hero-name em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.7s ease forwards;
+  }
+
+  .hero-line {
+    width: 60px;
+    height: 1px;
+    background: var(--accent);
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: expandLine 0.8s 0.9s ease forwards;
+  }
+
+  @keyframes expandLine {
+    from { width: 0; opacity: 0; }
+    to { width: 60px; opacity: 1; }
+  }
+
+  .scroll-hint {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 1.2s ease forwards;
+  }
+  .scroll-hint::after {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 1px;
+    background: var(--muted);
+    animation: scrollPulse 2s 1.5s infinite;
+  }
+  @keyframes scrollPulse {
+    0%, 100% { width: 30px; opacity: 0.4; }
+    50% { width: 50px; opacity: 1; }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ─── PORTRAIT SECTION ─── */
+  .portrait-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 80vh;
+    background: var(--bg2);
+  }
+
+  .portrait-col {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .portrait-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    filter: grayscale(20%) sepia(10%);
+    transition: filter 0.5s ease;
+  }
+  .portrait-col:hover .portrait-img {
+    filter: grayscale(0%) sepia(0%);
+  }
+
+  .portrait-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, transparent 60%, var(--bg2) 100%);
+  }
+
+  .portrait-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5rem 4rem;
+  }
+
+  /* ─── SECTION COMMON ─── */
+  .section {
+    padding: 6rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .section-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    margin-bottom: 2rem;
+  }
+  .section-title em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .lead {
+    font-size: 1.25rem;
+    font-weight: 300;
+    line-height: 1.9;
+    color: rgba(232,228,220,0.75);
+    max-width: 680px;
+  }
+
+  .lead strong {
+    color: var(--text);
+    font-weight: 400;
+  }
+
+  /* ─── STORY BLOCKS ─── */
+  .story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    margin-top: 5rem;
+    border: 1px solid var(--border);
+  }
+
+  .story-block {
+    padding: 3rem;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    transition: background 0.3s ease;
+  }
+  .story-block:hover {
+    background: var(--surface);
+  }
+  .story-block:nth-child(even) { border-right: none; }
+  .story-block:nth-last-child(-n+2) { border-bottom: none; }
+
+  .story-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--accent);
+    letter-spacing: 0.2em;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  .story-block h3 {
+    font-size: 1.4rem;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+  }
+
+  .story-block p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgba(232,228,220,0.65);
+  }
+
+  /* ─── PROGETTI ─── */
+  .projects-outer {
+    background: var(--bg2);
+    padding: 6rem 0;
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-top: 4rem;
+  }
+
+  .project-card {
+    background: var(--bg);
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.4s ease;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+  .project-card:hover {
+    background: var(--surface);
+  }
+  .project-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    height: 2px;
+    width: 0;
+    background: var(--accent);
+    transition: width 0.4s ease;
+  }
+  .project-card:hover::before { width: 100%; }
+
+  .project-type {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.25em;
+    color: var(--accent2);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .project-name {
+    font-size: 1.6rem;
+    font-weight: 400;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.01em;
+  }
+
+  .project-desc {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: rgba(232,228,220,0.6);
+    margin-bottom: 1.5rem;
+  }
+
+  .project-link {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .project-link::after {
+    content: '→';
+    transition: transform 0.3s ease;
+  }
+  .project-card:hover .project-link::after {
+    transform: translateX(6px);
+  }
+
+  .project-card.cassetto {
+    opacity: 0.55;
+  }
+  .project-card.cassetto:hover { opacity: 0.85; }
+
+  /* ─── RUOLI ─── */
+  .roles-section {
+    padding: 6rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .roles-list {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--border);
+  }
+
+  .role-item {
+    display: grid;
+    grid-template-columns: 2fr 3fr auto;
+    align-items: center;
+    padding: 2rem 2.5rem;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.3s ease;
+    gap: 2rem;
+  }
+  .role-item:last-child { border-bottom: none; }
+  .role-item:hover { background: var(--surface); }
+
+  .role-company {
+    font-size: 1.2rem;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+
+  .role-title {
+    font-size: 0.95rem;
+    color: rgba(232,228,220,0.55);
+    line-height: 1.6;
+  }
+
+  .role-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    border: 1px solid var(--border);
+    padding: 0.35rem 0.75rem;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  /* ─── CONTACT ─── */
+  .contact-outer {
+    background: var(--bg2);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-outer::before {
+    content: 'LM';
+    position: absolute;
+    right: -2rem;
+    bottom: -5rem;
+    font-size: 30vw;
+    font-weight: 300;
+    color: rgba(255,255,255,0.015);
+    line-height: 1;
+    pointer-events: none;
+    letter-spacing: -0.05em;
+    font-style: italic;
+  }
+
+  .contact-inner {
+    padding: 6rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-top: 3rem;
+    align-items: start;
+  }
+
+  .contact-item {
+    padding: 2.5rem;
+    border: 1px solid var(--border);
+    transition: border-color 0.3s, background 0.3s;
+  }
+  .contact-item:hover {
+    border-color: var(--accent);
+    background: var(--surface);
+  }
+
+  .contact-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+
+  .contact-value {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: var(--text);
+    text-decoration: none;
+    display: block;
+    transition: color 0.3s;
+    word-break: break-all;
+  }
+  .contact-value:hover { color: var(--accent); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    padding: 2rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border);
+  }
+
+  footer span {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  /* ─── DIVIDER ─── */
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 0 4rem;
+  }
+
+  /* ─── SCROLL REVEAL ─── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { height: 50vh; }
+    .hero-left { padding: 2.5rem; }
+    .portrait-section { grid-template-columns: 1fr; }
+    .portrait-col { height: 60vw; }
+    .portrait-text { padding: 3rem 2.5rem; }
+    .section, .roles-section, .contact-inner { padding: 4rem 2rem; }
+    .story-grid { grid-template-columns: 1fr; }
+    .story-block { border-right: none; }
+    .story-block:nth-last-child(-n+2) { border-bottom: 1px solid var(--border); }
+    .story-block:last-child { border-bottom: none; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .role-item { grid-template-columns: 1fr; gap: 0.5rem; }
+    .contact-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-tag">Anti-Startupper · Imprenditore · Fractional CFO</div>
+    <h1 class="hero-name">Luca<br><em>Morozzi</em></h1>
+    <div class="hero-line"></div>
+    <p class="hero-subtitle">
+      Mente da matematico,<br>
+      anima da costruttore di sistemi.<br>
+      Emilia-Romagna · Italia
+    </p>
+    <div class="scroll-hint">Scorri per scoprire</div>
+  </div>
+  <div class="hero-right">
+    <img src="1697902368086.jpeg" alt="Luca Morozzi" class="hero-banner-img">
+  </div>
+</section>
+
+<!-- PORTRAIT + INTRO -->
+<section class="portrait-section">
+  <div class="portrait-col">
+    <img src="1665141985372.jpg" alt="Luca Morozzi" class="portrait-img">
+    <div class="portrait-overlay"></div>
+  </div>
+  <div class="portrait-text reveal">
+    <div class="section-label">Chi sono</div>
+    <h2 class="section-title">Progetto sistemi,<br>costruisco <em>vantaggi</em>.</h2>
+    <p class="lead">
+      Provengo da una famiglia di matematici. Il mio percorso parte da un diploma con <strong>100/100</strong> all'istituto tecnico meccanico, attraversa lauree in <strong>Relazioni Internazionali</strong> e <strong>Nutrizione</strong>, e approda dove ho sempre voluto essere: nell'architettura di modelli di business scalabili.
+    </p>
+    <br>
+    <p class="lead">
+      La mia mente è costantemente orientata allo sviluppo di <strong>vantaggi statistici</strong> e alla progettazione di sistemi che crescono da soli.
+    </p>
+  </div>
+</section>
+
+<!-- STORIA -->
+<section class="section">
+  <div class="section-label reveal">La mia storia</div>
+  <h2 class="section-title reveal reveal-delay-1">Il percorso verso<br>l'<em>anti-startup</em>.</h2>
+
+  <div class="story-grid">
+    <div class="story-block reveal">
+      <span class="story-num">01 — Origine</span>
+      <h3>Matematica nel sangue</h3>
+      <p>Cresciuto in una famiglia di matematici, ho sviluppato fin da subito una predisposizione naturale per i numeri, i modelli e le strutture. Il diploma con 100/100 non era il traguardo — era il punto di partenza.</p>
+    </div>
+    <div class="story-block reveal reveal-delay-1">
+      <span class="story-num">02 — Studio</span>
+      <h3>Lauree multidisciplinari</h3>
+      <p>Relazioni Internazionali e Nutrizione. Due mondi apparentemente distanti, ma entrambi fondamentali per comprendere sistemi complessi — sociali, economici, biologici. La mente non smetteva di cercare pattern ovunque.</p>
+    </div>
+    <div class="story-block reveal reveal-delay-2">
+      <span class="story-num">03 — Il blocco</span>
+      <h3>Troppo studio, poco network</h3>
+      <p>Per anni sono rimasto intrappolato nell'over-studio e nel perfezionamento delle performance psicofisiche. Il voler fare tutto da solo mi bloccava: non mi sentivo mai sufficientemente pronto, mentre vedevo persone forse meno preparate, ma con più sprint e network, sfrecciare avanti.</p>
+    </div>
+    <div class="story-block reveal reveal-delay-3">
+      <span class="story-num">04 — La svolta</span>
+      <h3>Alleati, non solo competenze</h3>
+      <p>La decisione di ampliare la rete, cercare alleati strategici e smettere di aspettare la perfezione ha cambiato tutto. Da quel momento sono diventato quello che chiamo un <strong>"anti-startupper"</strong>: imprenditore con metodo, non con il mito del garage.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROGETTI ATTIVI -->
+<div class="projects-outer">
+  <div class="section" style="padding-bottom: 1rem;">
+    <div class="section-label reveal">Ecosistema</div>
+    <h2 class="section-title reveal reveal-delay-1">Progetti <em>attivi</em><br>& in sviluppo.</h2>
+  </div>
+
+  <div class="section" style="padding-top: 0;">
+    <div style="font-family:'DM Mono',monospace; font-size:0.6rem; letter-spacing:0.2em; color:var(--accent2); text-transform:uppercase; margin-bottom: 1.5rem;">— Startup innovative co-fondate</div>
+    <div class="projects-grid">
+      <a href="https://giamorgroup.it" target="_blank" class="project-card reveal">
+        <div class="project-type">Fintech · Attivo</div>
+        <div class="project-name">Giamor Group</div>
+        <p class="project-desc">Servizi fintech innovativi. Piattaforma di gestione finanziaria pensata per il mercato italiano, con focus su accessibilità e scalabilità.</p>
+        <span class="project-link">giamorgroup.it</span>
+      </a>
+      <a href="https://digitalbridgegroup.it" target="_blank" class="project-card reveal reveal-delay-1">
+        <div class="project-type">Rete d'impresa · Attivo</div>
+        <div class="project-name">Digital Bridge Group</div>
+        <p class="project-desc">Rete di PMI tecnologiche italiane e holding operativa. Aggregatore di competenze digitali per competere su scala europea.</p>
+        <span class="project-link">digitalbridgegroup.it</span>
+      </a>
+      <a href="https://quematch.it" target="_blank" class="project-card reveal reveal-delay-2">
+        <div class="project-type">HR Tech · AI · Attivo</div>
+        <div class="project-name">QueMatch</div>
+        <p class="project-desc">Recruiting innovativo AI-supported. Filtra i candidati e genera un ranking di affinità con il datore di lavoro: meno tempo di selezione, più precisione, tasso di turnover ridotto.</p>
+        <span class="project-link">quematch.it</span>
+      </a>
+      <a href="https://wabbuo.com" target="_blank" class="project-card reveal reveal-delay-3">
+        <div class="project-type">SaaS · Attivo</div>
+        <div class="project-name">Wabbuo</div>
+        <p class="project-desc">App per centralizzare e facilitare la presenza web di lavoratori, professionisti e piccole imprese. Un unico hub digitale identitario.</p>
+        <span class="project-link">wabbuo.com</span>
+      </a>
+    </div>
+
+    <div style="font-family:'DM Mono',monospace; font-size:0.6rem; letter-spacing:0.2em; color:var(--muted); text-transform:uppercase; margin: 3rem 0 1.5rem;">— Altri progetti ideati</div>
+    <div class="projects-grid">
+      <div class="project-card reveal">
+        <div class="project-type">Procurement · Spin-off · In testing</div>
+        <div class="project-name">Arkipay</div>
+        <p class="project-desc">Dynamic discount data-driven con AI applicato alla supply chain di materiali indiretti e piccoli fornitori. Oggi spin-off di Arkimat, domani startup autonoma.</p>
+      </div>
+      <div class="project-card cassetto reveal reveal-delay-1">
+        <div class="project-type">Energy · Nel cassetto</div>
+        <div class="project-name">Refuoil</div>
+        <p class="project-desc">Piattaforma innovativa di procurement digitale multifornitore per prodotti petrolchimici. Progettata, in attesa di sviluppo.</p>
+      </div>
+      <div class="project-card cassetto reveal reveal-delay-2">
+        <div class="project-type">Finance · Nel cassetto</div>
+        <div class="project-name">Fondo Ricerca</div>
+        <p class="project-desc">Fondo d'investimento con logiche innovative di protezione del capitale e costi ETF. Applica principi genetici per creare edge statistici low-volatility.</p>
+      </div>
+      <div class="project-card cassetto reveal reveal-delay-3">
+        <div class="project-type">M&A Advisory · Nel cassetto</div>
+        <div class="project-name">SophAI</div>
+        <p class="project-desc">Tool innovativo per valutare l'enterprise value di PMI italiane. Utile per M&A, accordi tra soci e passaggi ereditari.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RUOLI -->
+<section class="roles-section">
+  <div class="section-label reveal">Oggi</div>
+  <h2 class="section-title reveal reveal-delay-1">Ruoli <em>attuali</em>.</h2>
+  <p class="lead reveal reveal-delay-2" style="margin-bottom: 0;">Opero come Fractional CFO e Business Developer in cinque realtà in parallelo, portando rigore finanziario, visione strategica e orientamento alla crescita.</p>
+
+  <div class="roles-list reveal reveal-delay-3">
+    <div class="role-item">
+      <div class="role-company">Giamor Group Srl</div>
+      <div class="role-title">Fractional CFO · Co-fondatore · Direzione finanziaria e sviluppo commerciale</div>
+      <div class="role-badge">Attivo</div>
+    </div>
+    <div class="role-item">
+      <div class="role-company">Digital Bridge Group</div>
+      <div class="role-title">Co-fondatore · CFO · Business Development della rete d'impresa</div>
+      <div class="role-badge">Attivo</div>
+    </div>
+    <div class="role-item">
+      <div class="role-company">Arkimat Srl</div>
+      <div class="role-title">Fractional CFO · Consulenza procurement e controllo finanziario</div>
+      <div class="role-badge">Attivo</div>
+    </div>
+    <div class="role-item">
+      <div class="role-company">QueMatch Srl</div>
+      <div class="role-title">Co-fondatore · CFO · Direzione finanziaria e sviluppo strategico</div>
+      <div class="role-badge">Attivo</div>
+    </div>
+    <div class="role-item">
+      <div class="role-company">Wabbuo Srl</div>
+      <div class="role-title">Co-fondatore · CFO · Business development e strategia di crescita</div>
+      <div class="role-badge">Attivo</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTATTI -->
+<div class="contact-outer">
+  <div class="contact-inner">
+    <div class="section-label reveal">Contatti</div>
+    <h2 class="section-title reveal reveal-delay-1">Parliamo di<br><em>opportunità</em>.</h2>
+    <p class="lead reveal reveal-delay-2">Sei un imprenditore, un investitore o un potenziale partner? Costruiamo qualcosa insieme.</p>
+
+    <div class="contact-grid">
+      <div class="contact-item reveal reveal-delay-1">
+        <div class="contact-label">Email — Arkimat</div>
+        <a href="mailto:luca.morozzi@arkimat.com" class="contact-value">luca.morozzi@arkimat.com</a>
+      </div>
+      <div class="contact-item reveal reveal-delay-2">
+        <div class="contact-label">Email — Giamor Group</div>
+        <a href="mailto:luca.morozzi@giamorgroup.it" class="contact-value">luca.morozzi@giamorgroup.it</a>
+      </div>
+      <div class="contact-item reveal reveal-delay-3">
+        <div class="contact-label">Telefono</div>
+        <a href="tel:+393884079916" class="contact-value">+39 388 407 9916</a>
+      </div>
+      <div class="contact-item reveal reveal-delay-4">
+        <div class="contact-label">Sede</div>
+        <span class="contact-value" style="cursor:default;">Emilia-Romagna, Italia</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2025 Luca Morozzi</span>
+  <span>lucamorozzi.it</span>
+  <span>Emilia-Romagna · Italia</span>
+</footer>
+
+<script>
+  // Custom cursor
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+  function animCursor() {
+    cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
+    rx += (mx - rx) * 0.15; ry += (my - ry) * 0.15;
+    ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+    requestAnimationFrame(animCursor);
+  }
+  animCursor();
+  document.querySelectorAll('a, button, .project-card, .role-item, .contact-item').forEach(el => {
+    el.addEventListener('mouseenter', () => { ring.style.width = '54px'; ring.style.height = '54px'; ring.style.borderColor = 'rgba(200,169,110,0.8)'; });
+    el.addEventListener('mouseleave', () => { ring.style.width = '32px'; ring.style.height = '32px'; ring.style.borderColor = 'rgba(200,169,110,0.4)'; });
+  });
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
