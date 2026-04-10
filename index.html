@@ -24,10 +24,10 @@
     --glow:    rgba(56,182,255,0.08);
     --nav-h:   64px;
   }
-
+ 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
-
+ 
   body {
     background: var(--bg);
     color: var(--text);
@@ -35,7 +35,7 @@
     overflow-x: hidden;
     cursor: none;
   }
-
+ 
   /* CURSOR */
   .cursor {
     position: fixed; width: 6px; height: 6px;
@@ -51,7 +51,7 @@
     transform: translate(-50%,-50%);
     transition: width 0.3s, height 0.3s, border-color 0.3s;
   }
-
+ 
   /* NOISE */
   body::before {
     content: '';
@@ -59,7 +59,7 @@
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
     pointer-events: none; z-index: 1000; opacity: 0.5;
   }
-
+ 
   /* SCANLINE effect */
   body::after {
     content: '';
@@ -73,7 +73,7 @@
     );
     pointer-events: none; z-index: 999;
   }
-
+ 
   /* NAVBAR */
   nav {
     position: fixed; top: 0; left: 0; right: 0;
@@ -87,7 +87,7 @@
     z-index: 5000;
     box-shadow: 0 1px 30px rgba(56,182,255,0.06);
   }
-
+ 
   .nav-logo {
     font-family: 'Syne', sans-serif;
     font-size: 0.9rem; font-weight: 800;
@@ -98,7 +98,7 @@
     color: var(--accent);
     text-shadow: 0 0 12px rgba(56,182,255,0.6);
   }
-
+ 
   .nav-links { display: flex; align-items: center; gap: 2.5rem; list-style: none; }
   .nav-links a {
     font-family: 'JetBrains Mono', monospace;
@@ -116,13 +116,13 @@
   }
   .nav-links a:hover, .nav-links a.active { color: var(--accent); text-shadow: 0 0 8px rgba(56,182,255,0.5); }
   .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
-
+ 
   .nav-toggle {
     display: none; flex-direction: column; gap: 5px;
     background: none; border: none; padding: 4px; cursor: pointer;
   }
   .nav-toggle span { display: block; width: 22px; height: 1px; background: var(--text); transition: all 0.3s; }
-
+ 
   /* ═══ HERO — fullscreen con immagine sfondo ═══ */
   #home {
     position: relative;
@@ -130,7 +130,7 @@
     display: flex; align-items: flex-end;
     overflow: hidden;
   }
-
+ 
   .hero-bg {
     position: absolute; inset: 0; z-index: 0;
   }
@@ -147,7 +147,7 @@
       linear-gradient(180deg, rgba(4,7,15,0.55) 0%, rgba(4,7,15,0.1) 40%, rgba(4,7,15,0.85) 85%, var(--bg) 100%),
       linear-gradient(90deg, rgba(4,7,15,0.7) 0%, transparent 60%);
   }
-
+ 
   /* Griglia tech in overlay */
   .hero-grid-overlay {
     position: absolute; inset: 0; z-index: 1;
@@ -157,13 +157,13 @@
     background-size: 60px 60px;
     pointer-events: none;
   }
-
+ 
   .hero-content {
     position: relative; z-index: 2;
     padding: calc(var(--nav-h) + 4rem) 5rem 6rem;
     max-width: 800px;
   }
-
+ 
   .hero-tag {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.58rem; letter-spacing: 0.3em;
@@ -177,7 +177,7 @@
     background: linear-gradient(90deg, transparent, var(--accent2));
     box-shadow: 0 0 6px var(--accent2);
   }
-
+ 
   .hero-name {
     font-size: clamp(4rem, 9vw, 8rem);
     font-weight: 800; line-height: 0.88;
@@ -187,7 +187,7 @@
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-
+ 
   .hero-subtitle {
     font-size: 1.05rem; font-weight: 300;
     color: rgba(180,200,220,0.75);
@@ -195,7 +195,7 @@
     margin-bottom: 3rem; max-width: 480px;
     opacity: 0; animation: fadeUp 0.8s 0.7s ease forwards;
   }
-
+ 
   .hero-divider {
     width: 80px; height: 1px;
     background: linear-gradient(90deg, var(--accent), var(--accent2));
@@ -203,7 +203,7 @@
     margin-bottom: 3rem;
     opacity: 0; animation: expandLine 0.8s 0.9s ease forwards;
   }
-
+ 
   .hero-cta {
     display: inline-flex; align-items: center; gap: 0.85rem;
     font-family: 'JetBrains Mono', monospace;
@@ -222,7 +222,7 @@
   .hero-cta:hover { border-color: var(--accent); color: #fff; box-shadow: 0 0 20px rgba(56,182,255,0.25); }
   .hero-cta:hover::before { opacity: 1; }
   .hero-cta::after { content: '→'; }
-
+ 
   .scroll-hint {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.5rem; letter-spacing: 0.22em; color: var(--muted);
@@ -234,16 +234,16 @@
     content: ''; display: block; width: 30px; height: 1px;
     background: var(--muted); animation: scrollPulse 2s 1.5s infinite;
   }
-
+ 
   @keyframes expandLine { from { width:0; opacity:0; } to { width:80px; opacity:1; } }
   @keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
   @keyframes scrollPulse { 0%,100%{width:30px;opacity:0.4} 50%{width:50px;opacity:1} }
-
+ 
   /* SECTION COMMON */
   .section-wrap { padding: 6rem 5rem; max-width: 1200px; margin: 0 auto; }
   .section-outer { background: var(--bg); }
   .section-outer.alt { background: var(--bg2); }
-
+ 
   .section-label {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.54rem; letter-spacing: 0.32em; color: var(--accent2);
@@ -255,7 +255,7 @@
     background: linear-gradient(90deg, transparent, var(--accent2));
     box-shadow: 0 0 6px var(--accent2);
   }
-
+ 
   .section-title {
     font-size: clamp(2.2rem, 4.5vw, 3.8rem);
     font-weight: 700; line-height: 1.08;
@@ -264,13 +264,13 @@
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-
+ 
   .lead {
     font-size: 1.08rem; font-weight: 300; line-height: 1.9;
     color: rgba(180,200,220,0.7); max-width: 680px;
   }
   .lead strong { color: var(--text); font-weight: 500; }
-
+ 
   /* CHI SONO */
   .chi-sono-inner {
     display: grid; grid-template-columns: 1fr 1fr;
@@ -293,7 +293,7 @@
     background: radial-gradient(ellipse at top left, rgba(56,182,255,0.05) 0%, transparent 60%);
     pointer-events: none;
   }
-
+ 
   /* STORY */
   .story-grid {
     display: grid; grid-template-columns: 1fr 1fr;
@@ -329,7 +329,7 @@
     color: #d0e8f8;
   }
   .story-block p { font-size: 0.92rem; line-height: 1.82; color: rgba(180,200,220,0.6); }
-
+ 
   /* RUOLI */
   .ruoli-inner {
     display: grid; grid-template-columns: 1fr 1fr;
@@ -365,7 +365,7 @@
     background: rgba(0,229,255,0.04);
     box-shadow: 0 0 8px rgba(0,229,255,0.08);
   }
-
+ 
   /* RUOLI STAT STRIP */
   .stat-strip {
     display: grid; grid-template-columns: repeat(3,1fr);
@@ -396,7 +396,7 @@
     font-size: 0.5rem; letter-spacing: 0.2em; color: var(--muted);
     text-transform: uppercase;
   }
-
+ 
   /* PROGETTI ATTIVI */
   .projects-grid {
     display: grid; grid-template-columns: repeat(2, 1fr);
@@ -424,7 +424,7 @@
   .project-card:hover { background: var(--surface); }
   .project-card:hover::before { width: 100%; }
   .project-card:hover::after { opacity: 1; }
-
+ 
   .project-type {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.5rem; letter-spacing: 0.25em;
@@ -443,7 +443,7 @@
   }
   .project-link::after { content: '→'; transition: transform 0.3s; }
   .project-card:hover .project-link::after { transform: translateX(5px); }
-
+ 
   /* CASSETTO */
   .cassetto-grid {
     display: grid; grid-template-columns: repeat(2, 1fr);
@@ -469,7 +469,7 @@
   }
   .cassetto-name { font-size: 1.45rem; font-weight: 700; margin-bottom: 0.65rem; letter-spacing: -0.01em; color: #c0d8f0; }
   .cassetto-desc { font-size: 0.9rem; line-height: 1.75; color: rgba(180,200,220,0.48); }
-
+ 
   /* CONTATTI */
   .contact-grid {
     display: grid; grid-template-columns: 1fr 1fr;
@@ -499,7 +499,7 @@
     text-decoration: none; display: block; transition: color 0.3s;
   }
   .contact-value:hover { color: var(--accent); text-shadow: 0 0 8px rgba(56,182,255,0.4); }
-
+ 
   /* FOOTER */
   footer {
     padding: 2rem 5rem;
@@ -510,7 +510,7 @@
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.5rem; letter-spacing: 0.15em; color: var(--muted); text-transform: uppercase;
   }
-
+ 
   /* REVEAL */
   .reveal { opacity: 1; transform: none; transition: opacity 0.8s ease, transform 0.8s ease; }
   .reveal.pre-reveal { opacity: 0; transform: translateY(28px); }
@@ -518,7 +518,7 @@
   .reveal-delay-2 { transition-delay: 0.24s; }
   .reveal-delay-3 { transition-delay: 0.36s; }
   .reveal-delay-4 { transition-delay: 0.48s; }
-
+ 
   /* RESPONSIVE */
   @media (max-width: 960px) {
     nav { padding: 0 1.5rem; }
@@ -532,10 +532,10 @@
     .nav-links.open { display: flex; }
     .nav-links a { font-size: 0.75rem; }
     .nav-toggle { display: flex; }
-
+ 
     .hero-content { padding: calc(var(--nav-h) + 3rem) 2rem 5rem; }
     .hero-name { font-size: clamp(3rem, 14vw, 5rem); }
-
+ 
     .section-wrap { padding: 4rem 2rem; }
     .chi-sono-inner { grid-template-columns: 1fr; gap: 2.5rem; }
     .ruoli-inner { grid-template-columns: 1fr; gap: 2.5rem; }
@@ -553,10 +553,10 @@
 </style>
 </head>
 <body>
-
+ 
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
-
+ 
 <!-- NAVBAR -->
 <nav id="navbar">
   <a href="#home" class="nav-logo">Luca <span>Morozzi</span></a>
@@ -571,7 +571,7 @@
     <li><a href="#contatti">Contatti</a></li>
   </ul>
 </nav>
-
+ 
 <!-- HOME / HERO — immagine sfondo fullscreen -->
 <section id="home">
   <div class="hero-bg">
@@ -590,13 +590,13 @@
     <div class="scroll-hint">Scorri per scoprire</div>
   </div>
 </section>
-
+ 
 <!-- COMPETENZE -->
 <div id="chi-sono" class="section-outer alt">
   <div class="section-wrap">
     <div class="section-label reveal">Competenze</div>
     <h2 class="section-title reveal reveal-delay-1">Aree di attività.</h2>
-
+ 
     <div class="story-grid reveal reveal-delay-2">
       <div class="story-block">
         <span class="story-num">01 — Finance</span>
@@ -631,7 +631,7 @@
     </div>
   </div>
 </div>
-
+ 
 <!-- RUOLI RICOPERTI -->
 <div id="ruoli" class="section-outer">
   <div class="section-wrap">
@@ -699,13 +699,13 @@
     </div>
   </div>
 </div>
-
+ 
 <!-- PROGETTI ATTIVI -->
 <div id="progetti-attivi" class="section-outer alt">
   <div class="section-wrap">
     <div class="section-label reveal">Ecosistema</div>
     <h2 class="section-title reveal reveal-delay-1">Progetti attivi<br>& in sviluppo.</h2>
-
+ 
     <div class="projects-grid">
       <a href="https://giamorgroup.it" target="_blank" class="project-card reveal">
         <div class="project-type">Fintech · Attivo</div>
@@ -732,7 +732,7 @@
         <span class="project-link">wabbuo.com</span>
       </a>
     </div>
-
+ 
     <div style="margin-top:3.5rem;">
       <div style="font-family:'JetBrains Mono',monospace;font-size:0.5rem;letter-spacing:0.22em;color:var(--accent2);text-transform:uppercase;margin-bottom:1.5rem;display:flex;align-items:center;gap:1rem;">
         <span style="display:block;width:16px;height:1px;background:var(--accent2);box-shadow:0 0 4px var(--accent2);"></span>
@@ -748,7 +748,7 @@
     </div>
   </div>
 </div>
-
+ 
 <!-- NEL CASSETTO -->
 <div id="cassetto" class="section-outer">
   <div class="section-wrap">
@@ -774,7 +774,7 @@
     </div>
   </div>
 </div>
-
+ 
 <!-- CONTATTI -->
 <div id="contatti" class="section-outer alt" style="position:relative;overflow:hidden;">
   <div style="position:absolute;right:-2rem;bottom:-5rem;font-size:28vw;font-weight:800;color:rgba(56,182,255,0.025);line-height:1;pointer-events:none;font-style:italic;letter-spacing:-0.05em;">LM</div>
@@ -801,14 +801,14 @@
     </div>
   </div>
 </div>
-
+ 
 <!-- FOOTER -->
 <footer>
   <span>© 2025 Luca Morozzi</span>
   <span>lucamorozzi.it</span>
   <span>Emilia-Romagna · Italia</span>
 </footer>
-
+ 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // Custom cursor
   const cursor = document.getElementById('cursor');
@@ -825,7 +825,7 @@
     el.addEventListener('mouseenter', () => { ring.style.width='50px'; ring.style.height='50px'; ring.style.borderColor='rgba(56,182,255,0.7)'; });
     el.addEventListener('mouseleave', () => { ring.style.width='30px'; ring.style.height='30px'; ring.style.borderColor='rgba(56,182,255,0.4)'; });
   });
-
+ 
   // Mobile nav
   document.getElementById('navToggle').addEventListener('click', () => {
     document.getElementById('navLinks').classList.toggle('open');
@@ -833,7 +833,7 @@
   document.querySelectorAll('#navLinks a').forEach(a => {
     a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
   });
-
+ 
   // Active nav on scroll
   const sectionIds = ['home','chi-sono','ruoli','progetti-attivi','cassetto','contatti'];
   const navAs = document.querySelectorAll('.nav-links a');
@@ -847,6 +847,6 @@
       a.classList.toggle('active', a.getAttribute('href') === '#' + current);
     });
   }, { passive: true });
-
+ 
   // Scroll reveal
   document.querySelectorAll('.reveal').forEach
