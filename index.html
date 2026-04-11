@@ -33,24 +33,10 @@
     color: var(--text);
     font-family: 'Syne', sans-serif;
     overflow-x: hidden;
-    cursor: none;
   }
  
-  /* CURSOR */
-  .cursor {
-    position: fixed; width: 6px; height: 6px;
-    background: var(--accent2); border-radius: 50%;
-    pointer-events: none; z-index: 10000;
-    transform: translate(-50%,-50%);
-    box-shadow: 0 0 10px var(--accent2), 0 0 20px rgba(0,229,255,0.4);
-  }
-  .cursor-ring {
-    position: fixed; width: 30px; height: 30px;
-    border: 1px solid rgba(56,182,255,0.5); border-radius: 50%;
-    pointer-events: none; z-index: 9999;
-    transform: translate(-50%,-50%);
-    transition: width 0.3s, height 0.3s, border-color 0.3s;
-  }
+  /* CURSOR — custom cursor rimosso, si usa il cursore di sistema */
+  .cursor, .cursor-ring { display: none; }
  
   /* NOISE */
   body::before {
@@ -163,7 +149,8 @@
   .hero-content {
     position: relative; z-index: 2;
     padding: calc(var(--nav-h) + 4rem) 5rem 6rem;
-    max-width: 800px;
+    max-width: 900px;
+    overflow: visible;
   }
  
   .hero-tag {
@@ -188,6 +175,8 @@
     background: linear-gradient(135deg, #ffffff 0%, #a8d4f5 40%, var(--accent) 100%);
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     background-clip: text;
+    white-space: nowrap;
+    overflow: visible;
   }
  
   .hero-subtitle {
