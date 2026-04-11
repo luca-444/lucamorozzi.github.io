@@ -75,23 +75,17 @@
   }
  
   .nav-logo {
-    font-family: 'Syne', sans-serif;
-    font-size: 0.9rem; font-weight: 800;
-    letter-spacing: 0.12em; color: var(--text);
-    text-decoration: none; text-transform: uppercase;
-  }
-  .nav-logo span {
-    color: var(--accent);
-    text-shadow: 0 0 12px rgba(56,182,255,0.6);
+    display: none;
   }
  
   .nav-links { display: flex; align-items: center; gap: 2.5rem; list-style: none; }
   .nav-links a {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.56rem; letter-spacing: 0.22em;
-    text-transform: uppercase; color: var(--muted);
+    font-size: 0.72rem; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--text);
     text-decoration: none; position: relative;
     transition: color 0.3s;
+    font-weight: 500;
   }
   .nav-links a::after {
     content: ''; position: absolute; bottom: -4px; left: 0;
