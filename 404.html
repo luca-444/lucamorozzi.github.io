@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pagina non trovata — Luca Morozzi</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=IBM+Plex+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    min-height:100svh;background:#0a0a0a;color:#b4b4b4;
+    display:flex;align-items:center;justify-content:center;
+    padding:2rem;text-align:center;
+  }
+  body::after{
+    content:'';position:fixed;inset:0;pointer-events:none;opacity:.4;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.05'/%3E%3C/svg%3E");
+  }
+  .code{
+    font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 125,'wght' 900;
+    font-size:clamp(5rem,22vw,14rem);line-height:.8;color:transparent;
+    -webkit-text-stroke:1.5px #3d3d3d;margin-bottom:1.5rem;
+  }
+  h1{
+    font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 115,'wght' 780;
+    font-size:clamp(1.2rem,3.5vw,1.9rem);text-transform:uppercase;letter-spacing:-.01em;
+    color:#fafafa;margin-bottom:.9rem;
+  }
+  p{font-family:'IBM Plex Mono',monospace;font-size:.76rem;letter-spacing:.12em;color:#8c8c8c;margin-bottom:2.4rem}
+  a{
+    font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;
+    color:#0a0a0a;background:#fafafa;border:1px solid #fafafa;
+    padding:1rem 1.9rem;text-decoration:none;display:inline-block;transition:.3s;
+  }
+  a:hover{background:#0a0a0a;color:#fafafa}
+  a:focus-visible{outline:2px solid #fafafa;outline-offset:3px}
+  @supports not (-webkit-text-stroke: 1px #fff){ .code{color:#3d3d3d} }
+</style>
+</head>
+<body>
+  <main>
+    <div class="code">404</div>
+    <h1>Questa pagina non esiste</h1>
+    <p>Il link è sbagliato o la pagina è stata spostata.</p>
+    <a href="/">Torna alla home</a>
+  </main>
+</body>
+</html>

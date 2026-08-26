@@ -1,901 +1,1069 @@
 <!DOCTYPE html>
-<html lang="it"> 
+<html lang="it">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Luca Morozzi — Imprenditore & Innovatore Seriale</title>
+<title>Luca Morozzi — Costruisco imprese</title>
+<meta name="description" content="Luca Morozzi. Fondo aziende, creo linee di business, costruisco team e progetto la struttura finanziaria: pianificazione, business plan e piani di finanziamento. Giamor Group, Wabbuo, Reparto Tecnologico, Sartoria Notarile, QueMatch, Atlas.">
+<meta name="author" content="Luca Morozzi">
+<link rel="canonical" href="https://lucamorozzi.it/">
+<meta name="theme-color" content="#0a0a0a">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="it_IT">
+<meta property="og:url" content="https://lucamorozzi.it/">
+<meta property="og:site_name" content="Luca Morozzi">
+<meta property="og:title" content="Luca Morozzi — Costruisco imprese">
+<meta property="og:description" content="Fondo aziende, creo linee di business, costruisco team e progetto la struttura finanziaria.">
+<meta property="og:image" content="https://lucamorozzi.it/portrait_grayscale.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Luca Morozzi — Costruisco imprese">
+<meta name="twitter:description" content="Fondo aziende, creo linee di business, costruisco team e progetto la struttura finanziaria.">
+<meta name="twitter:image" content="https://lucamorozzi.it/portrait_grayscale.png">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="portrait_grayscale.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Instrument+Sans:wght@400..700&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Luca Morozzi",
+  "url": "https://lucamorozzi.it/",
+  "jobTitle": "Imprenditore · Business builder",
+  "email": "mailto:luca.morozzi@giamor.it",
+  "telephone": "+393884079916",
+  "address": { "@type": "PostalAddress", "addressRegion": "Emilia-Romagna", "addressCountry": "IT" },
+  "sameAs": [
+    "https://www.linkedin.com/in/lucamorozzi/",
+    "https://giamor.it",
+    "https://wabbuo.com",
+    "https://repartotecnologico.it",
+    "https://sartorianotarile.it",
+    "https://quematch.it"
+  ]
+}
+</script>
+
 <style>
-  :root {
-    --bg:      #04070f;
-    --bg2:     #080d18;
-    --surface: #0d1425;
-    --surface2:#101828;
-    --accent:  #38b6ff;
-    --accent2: #00e5ff;
-    --gold:    #7ecfff;
-    --text:    #cdd8e8;
-    --muted:   #3d5170;
-    --border:  rgba(56,182,255,0.14);
-    --border2: rgba(56,182,255,0.28);
-    --metal1:  #1a2540;
-    --metal2:  #0f1a30;
-    --glow:    rgba(56,182,255,0.08);
-    --nav-h:   64px;
-  }
- 
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
- 
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Syne', sans-serif;
-    overflow-x: hidden;
-  }
- 
-  /* CURSOR — custom cursor rimosso, si usa il cursore di sistema */
-  .cursor, .cursor-ring { display: none; }
- 
-  /* NOISE */
-  body::before {
-    content: '';
-    position: fixed; inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none; z-index: 1000; opacity: 0.5;
-  }
- 
-  /* SCANLINE effect */
-  body::after {
-    content: '';
-    position: fixed; inset: 0;
-    background: repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 2px,
-      rgba(0,0,0,0.03) 2px,
-      rgba(0,0,0,0.03) 4px
-    );
-    pointer-events: none; z-index: 999;
-  }
- 
-  /* NAVBAR */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0;
-    height: var(--nav-h);
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 3rem;
-    background: rgba(4,7,15,0.88);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--border);
-    z-index: 5000;
-    box-shadow: 0 1px 30px rgba(56,182,255,0.06);
-  }
- 
-  .nav-logo {
-    display: none;
-  }
- 
-  .nav-links { display: flex; align-items: center; gap: 2.5rem; list-style: none; }
-  .nav-links a {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.78rem; letter-spacing: 0.15em;
-    text-transform: uppercase; color: var(--text);
-    text-decoration: none; position: relative;
-    transition: color 0.3s;
-    font-weight: 500;
-  }
-  .nav-links a::after {
-    content: ''; position: absolute; bottom: -4px; left: 0;
-    width: 0; height: 1px;
-    background: linear-gradient(90deg, var(--accent), var(--accent2));
-    transition: width 0.3s;
-    box-shadow: 0 0 6px var(--accent);
-  }
-  .nav-links a:hover, .nav-links a.active { color: var(--accent); text-shadow: 0 0 8px rgba(56,182,255,0.5); }
-  .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
- 
-  .nav-toggle {
-    display: none; flex-direction: column; gap: 5px;
-    background: none; border: none; padding: 4px; cursor: pointer;
-  }
-  .nav-toggle span { display: block; width: 22px; height: 1px; background: var(--text); transition: all 0.3s; }
- 
-  /* ═══ HERO — fullscreen con immagine sfondo ═══ */
-  #home {
-    position: relative;
-    min-height: 100vh;
-    display: flex; align-items: center;
-    overflow: clip;
-  }
- 
-  .hero-bg {
-    position: absolute; inset: 0; z-index: 0;
-    display: flex; align-items: flex-end; justify-content: center;
-    background: var(--bg);
-  }
-  .hero-bg img {
-    width: auto; height: 100%;
-    max-width: 100%;
-    object-fit: contain; object-position: center bottom;
-    filter: grayscale(100%) contrast(1.05) brightness(0.45);
-    display: block;
-    margin: 0 auto;
-  }
-  /* Overlay metallico sfumato sopra la foto */
-  .hero-bg::after {
-    content: ''; position: absolute; inset: 0;
-    background:
-      linear-gradient(180deg, rgba(4,7,15,0.45) 0%, rgba(4,7,15,0.05) 35%, rgba(4,7,15,0.05) 65%, rgba(4,7,15,0.75) 88%, var(--bg) 100%),
-      linear-gradient(90deg, rgba(4,7,15,0.6) 0%, transparent 55%);
-  }
- 
-  /* Griglia tech in overlay */
-  .hero-grid-overlay {
-    position: absolute; inset: 0; z-index: 1;
-    background-image:
-      linear-gradient(rgba(56,182,255,0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(56,182,255,0.04) 1px, transparent 1px);
-    background-size: 60px 60px;
-    pointer-events: none;
-  }
- 
-  .hero-content {
-    position: relative; z-index: 2;
-    padding: calc(var(--nav-h) + 2rem) 5rem 6rem;
-    max-width: 900px;
-    overflow: visible;
-    margin-top: -28vh;
-  }
- 
-  .hero-tag {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.85rem; letter-spacing: 0.25em;
-    color: var(--accent2); text-transform: uppercase;
-    margin-bottom: 2rem;
-    display: flex; align-items: center; gap: 1rem;
-    opacity: 0; animation: fadeUp 0.8s 0.3s ease forwards;
-  }
-  .hero-tag::before {
-    content: ''; display: block; width: 30px; height: 1px;
-    background: linear-gradient(90deg, transparent, var(--accent2));
-    box-shadow: 0 0 6px var(--accent2);
-  }
- 
-  .hero-name {
-    font-family: 'Outfit', sans-serif;
-    font-size: clamp(3rem, 7.5vw, 7.5rem);
-    font-weight: 800; line-height: 0.92;
-    letter-spacing: -0.01em; margin-bottom: 1.5rem;
-    opacity: 0; animation: fadeUp 0.8s 0.5s ease forwards;
-    background: linear-gradient(135deg, #ffffff 0%, #a8d4f5 40%, var(--accent) 100%);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    background-clip: text;
-    white-space: nowrap;
-    overflow: visible;
-  }
- 
-  .hero-subtitle {
-    font-size: 1.05rem; font-weight: 300;
-    color: rgba(180,200,220,0.75);
-    letter-spacing: 0.04em; line-height: 1.9;
-    margin-bottom: 3rem; max-width: 480px;
-    opacity: 0; animation: fadeUp 0.8s 0.7s ease forwards;
-  }
- 
-  .hero-divider {
-    width: 80px; height: 1px;
-    background: linear-gradient(90deg, var(--accent), var(--accent2));
-    box-shadow: 0 0 10px rgba(56,182,255,0.6);
-    margin-bottom: 3rem;
-    opacity: 0; animation: expandLine 0.8s 0.9s ease forwards;
-  }
- 
-  .hero-cta {
-    display: inline-flex; align-items: center; gap: 0.85rem;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.85rem; letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--accent); text-decoration: none;
-    border: 1px solid var(--border2); padding: 1rem 2rem;
-    background: rgba(56,182,255,0.05);
-    transition: all 0.3s; position: relative; overflow: hidden;
-    opacity: 0; animation: fadeUp 0.8s 1.1s ease forwards;
-  }
-  .hero-cta::before {
-    content: ''; position: absolute; inset: 0;
-    background: linear-gradient(135deg, rgba(56,182,255,0.12), rgba(0,229,255,0.05));
-    opacity: 0; transition: opacity 0.3s;
-  }
-  .hero-cta:hover { border-color: var(--accent); color: #fff; box-shadow: 0 0 20px rgba(56,182,255,0.25); }
-  .hero-cta:hover::before { opacity: 1; }
-  .hero-cta::after { content: '→'; }
- 
-  .scroll-hint {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.78rem; letter-spacing: 0.2em; color: var(--muted);
-    text-transform: uppercase; display: flex; align-items: center; gap: 1rem;
-    margin-top: 3.5rem;
-    opacity: 0; animation: fadeUp 0.8s 1.3s ease forwards;
-  }
-  .scroll-hint::after {
-    content: ''; display: block; width: 30px; height: 1px;
-    background: var(--muted); animation: scrollPulse 2s 1.5s infinite;
-  }
- 
-  @keyframes expandLine { from { width:0; opacity:0; } to { width:80px; opacity:1; } }
-  @keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
-  @keyframes scrollPulse { 0%,100%{width:30px;opacity:0.4} 50%{width:50px;opacity:1} }
- 
-  /* SECTION COMMON */
-  .section-wrap { padding: 6rem 5rem; max-width: 1200px; margin: 0 auto; }
-  .section-outer { background: var(--bg); }
-  .section-outer.alt { background: var(--bg2); }
- 
-  .section-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.72rem; letter-spacing: 0.25em; color: var(--accent2);
-    text-transform: uppercase; margin-bottom: 1rem;
-    display: flex; align-items: center; gap: 1rem;
-  }
-  .section-label::before {
-    content: ''; display: block; width: 20px; height: 1px;
-    background: linear-gradient(90deg, transparent, var(--accent2));
-    box-shadow: 0 0 6px var(--accent2);
-  }
- 
-  .section-title {
-    font-family: 'Outfit', sans-serif;
-    font-size: clamp(2.2rem, 4.5vw, 3.8rem);
-    font-weight: 700; line-height: 1.1;
-    letter-spacing: -0.01em; margin-bottom: 2rem;
-    background: linear-gradient(135deg, #e8f4ff 0%, #a8cce8 60%, var(--accent) 100%);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
- 
-  .lead {
-    font-size: 1.08rem; font-weight: 300; line-height: 1.9;
-    color: rgba(180,200,220,0.7); max-width: 680px;
-  }
-  .lead strong { color: var(--text); font-weight: 500; }
- 
-  /* CHI SONO */
-  .chi-sono-inner {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 5rem; align-items: center;
-  }
-  .chi-sono-card {
-    background: linear-gradient(135deg, var(--surface) 0%, var(--metal2) 100%);
-    border: 1px solid var(--border);
-    padding: 3rem;
-    position: relative; overflow: hidden;
-    box-shadow: inset 0 1px 0 rgba(56,182,255,0.1), 0 20px 60px rgba(0,0,0,0.4);
-  }
-  .chi-sono-card::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
-    background: linear-gradient(90deg, transparent, var(--accent), transparent);
-    box-shadow: 0 0 12px var(--accent);
-  }
-  .chi-sono-card::after {
-    content: ''; position: absolute; inset: 0;
-    background: radial-gradient(ellipse at top left, rgba(56,182,255,0.05) 0%, transparent 60%);
-    pointer-events: none;
-  }
- 
-  /* STORY */
-  .story-grid {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 0; margin-top: 4rem;
-    border: 1px solid var(--border);
-    box-shadow: 0 0 40px rgba(56,182,255,0.04);
-  }
-  .story-block {
-    padding: 2.5rem 3rem;
-    border-right: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    transition: background 0.3s;
-    position: relative; overflow: hidden;
-  }
-  .story-block::before {
-    content: ''; position: absolute; top: 0; left: 0;
-    width: 0; height: 2px;
-    background: linear-gradient(90deg, var(--accent), var(--accent2));
-    transition: width 0.4s;
-    box-shadow: 0 0 8px var(--accent);
-  }
-  .story-block:hover { background: var(--surface); }
-  .story-block:hover::before { width: 100%; }
-  .story-block:nth-child(even) { border-right: none; }
-  .story-block:nth-last-child(-n+2) { border-bottom: none; }
-  .story-num {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.8rem; color: var(--accent2);
-    letter-spacing: 0.22em; margin-bottom: 1.25rem; display: block;
-  }
-  .story-block h3 {
-    font-size: 1.6rem; font-weight: 600; margin-bottom: 0.85rem; line-height: 1.3;
-    color: #d0e8f8;
-  }
-  .story-block p { font-size: 0.92rem; line-height: 1.82; color: rgba(180,200,220,0.6); }
- 
-  /* RUOLI */
-  .ruoli-inner {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 5rem; align-items: center;
-  }
-  .roles-list {
-    margin-top: 2.5rem;
-    border: 1px solid var(--border);
-    box-shadow: 0 0 40px rgba(56,182,255,0.04);
-  }
-  .role-item {
-    display: grid; grid-template-columns: 2fr 3fr auto;
-    align-items: center; padding: 1.6rem 2rem;
-    border-bottom: 1px solid var(--border);
-    transition: background 0.3s; gap: 1.5rem;
-    position: relative;
-  }
-  .role-item::before {
-    content: ''; position: absolute; left: 0; top: 0; bottom: 0;
-    width: 0; background: linear-gradient(180deg, var(--accent), var(--accent2));
-    transition: width 0.3s; opacity: 0.6;
-  }
-  .role-item:hover { background: var(--surface); }
-  .role-item:hover::before { width: 2px; }
-  .role-item:last-child { border-bottom: none; }
-  .role-company { font-size: 1rem; font-weight: 700; letter-spacing: -0.01em; color: #d8ecff; }
-  .role-title { font-size: 0.83rem; color: rgba(180,200,220,0.5); line-height: 1.6; }
-  .role-badge {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.68rem; letter-spacing: 0.12em;
-    color: var(--accent2); border: 1px solid rgba(0,229,255,0.2);
-    padding: 0.3rem 0.65rem; text-transform: uppercase; white-space: nowrap;
-    background: rgba(0,229,255,0.04);
-    box-shadow: 0 0 8px rgba(0,229,255,0.08);
-  }
- 
-  /* RUOLI STAT STRIP */
-  .stat-strip {
-    display: grid; grid-template-columns: repeat(3,1fr);
-    gap: 1px; background: var(--border);
-    border: 1px solid var(--border); margin-top: 3rem;
-  }
-  .stat-item {
-    background: var(--surface2);
-    padding: 2rem; text-align: center;
-    position: relative; overflow: hidden;
-    transition: background 0.3s;
-  }
-  .stat-item:hover { background: var(--surface); }
-  .stat-item::before {
-    content: ''; position: absolute; top: 0; left: 25%; right: 25%; height: 1px;
-    background: linear-gradient(90deg, transparent, var(--accent), transparent);
-    box-shadow: 0 0 8px var(--accent);
-  }
-  .stat-num {
-    font-size: 2.8rem; font-weight: 800; line-height: 1;
-    background: linear-gradient(135deg, #ffffff, var(--accent));
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 0.5rem;
-  }
-  .stat-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.70rem; letter-spacing: 0.18em; color: var(--muted);
-    text-transform: uppercase;
-  }
- 
-  /* PROGETTI ATTIVI */
-  .projects-grid {
-    display: grid; grid-template-columns: repeat(2, 1fr);
-    gap: 1px; background: var(--border);
-    border: 1px solid var(--border); margin-top: 3rem;
-  }
-  .project-card {
-    background: var(--surface2); padding: 2.5rem;
-    position: relative; overflow: hidden;
-    transition: background 0.4s;
-    text-decoration: none; color: inherit; display: block;
-  }
-  .project-card::before {
-    content: ''; position: absolute; bottom: 0; left: 0;
-    height: 2px; width: 0;
-    background: linear-gradient(90deg, var(--accent), var(--accent2));
-    transition: width 0.4s;
-    box-shadow: 0 0 8px var(--accent);
-  }
-  .project-card::after {
-    content: ''; position: absolute; inset: 0;
-    background: radial-gradient(ellipse at top right, rgba(56,182,255,0.06) 0%, transparent 60%);
-    opacity: 0; transition: opacity 0.4s;
-  }
-  .project-card:hover { background: var(--surface); }
-  .project-card:hover::before { width: 100%; }
-  .project-card:hover::after { opacity: 1; }
- 
-  .project-type {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.72rem; letter-spacing: 0.18em;
-  }
-  .project-name {
-    font-size: 1.45rem; font-weight: 700; margin-bottom: 0.65rem;
-    letter-spacing: -0.01em; color: #d8ecff;
-  }
-  .project-desc { font-size: 0.9rem; line-height: 1.75; color: rgba(180,200,220,0.55); margin-bottom: 1.25rem; }
-  .project-link {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.72rem; letter-spacing: 0.12em; color: var(--accent);
-    text-transform: uppercase; display: inline-flex; align-items: center; gap: 0.5rem;
-    text-shadow: 0 0 8px rgba(56,182,255,0.4);
-  }
-  .project-link::after { content: '→'; transition: transform 0.3s; }
-  .project-card:hover .project-link::after { transform: translateX(5px); }
- 
-  /* CASSETTO */
-  .cassetto-grid {
-    display: grid; grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem; margin-top: 3rem;
-  }
-  .cassetto-card {
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    padding: 2.5rem; position: relative; overflow: hidden;
-    transition: border-color 0.3s, background 0.3s;
-    opacity: 0.65;
-  }
-  .cassetto-card:hover { opacity: 1; border-color: rgba(56,182,255,0.35); background: var(--surface); }
-  .cassetto-card::before {
-    content: ''; position: absolute; top: 0; left: 0;
-    width: 3px; height: 0; background: var(--muted); transition: height 0.4s;
-  }
-  .cassetto-card:hover::before { height: 100%; background: linear-gradient(180deg, var(--accent), var(--accent2)); }
-  .cassetto-type {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.72rem; letter-spacing: 0.18em; color: var(--accent2);
-    text-transform: uppercase; margin-bottom: 0.85rem;
-  }
-  .cassetto-name { font-size: 1.45rem; font-weight: 700; margin-bottom: 0.65rem; letter-spacing: -0.01em; color: #c0d8f0; }
-  .cassetto-desc { font-size: 0.9rem; line-height: 1.75; color: rgba(180,200,220,0.48); }
- 
-  /* CONTATTI */
-  .contact-grid {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 1.5rem; margin-top: 3rem;
-  }
-  .contact-item {
-    padding: 2.5rem; border: 1px solid var(--border);
-    background: var(--surface2);
-    transition: border-color 0.3s, background 0.3s;
-    position: relative; overflow: hidden;
-  }
-  .contact-item::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
-    background: linear-gradient(90deg, transparent, var(--accent), transparent);
-    opacity: 0; transition: opacity 0.3s;
-    box-shadow: 0 0 8px var(--accent);
-  }
-  .contact-item:hover { border-color: rgba(56,182,255,0.35); background: var(--surface); }
-  .contact-item:hover::before { opacity: 1; }
-  .contact-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.72rem; letter-spacing: 0.2em; color: var(--muted);
-    text-transform: uppercase; margin-bottom: 0.75rem;
-  }
-  .contact-value {
-    font-size: 1rem; font-weight: 300; color: var(--text);
-    text-decoration: none; display: block; transition: color 0.3s;
-  }
-  .contact-value:hover { color: var(--accent); text-shadow: 0 0 8px rgba(56,182,255,0.4); }
- 
-  /* FOOTER */
-  footer {
-    padding: 2rem 5rem;
-    display: flex; justify-content: space-between; align-items: center;
-    border-top: 1px solid var(--border); background: var(--bg);
-  }
-  footer span {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.70rem; letter-spacing: 0.12em; color: var(--muted); text-transform: uppercase;
-  }
- 
-  /* REVEAL */
-  .reveal { opacity: 1; transform: none; transition: opacity 0.8s ease, transform 0.8s ease; }
-  .reveal.pre-reveal { opacity: 0; transform: translateY(28px); }
-  .reveal-delay-1 { transition-delay: 0.12s; }
-  .reveal-delay-2 { transition-delay: 0.24s; }
-  .reveal-delay-3 { transition-delay: 0.36s; }
-  .reveal-delay-4 { transition-delay: 0.48s; }
- 
-  /* RESPONSIVE */
-  @media (max-width: 960px) {
-    nav { padding: 0 1.5rem; }
-    .nav-links {
-      display: none; flex-direction: column;
-      position: absolute; top: var(--nav-h); left: 0; right: 0;
-      background: rgba(4,7,15,0.97);
-      padding: 1.5rem 2rem; gap: 1.5rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-links.open { display: flex; }
-    .nav-links a { font-size: 0.75rem; }
-    .nav-toggle { display: flex; }
- 
-    .hero-content { padding: calc(var(--nav-h) + 3rem) 2rem 5rem; }
-    .hero-name { font-size: clamp(2.5rem, 11vw, 4.5rem); white-space: normal; }
- 
-    .section-wrap { padding: 4rem 2rem; }
-    .chi-sono-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-    .ruoli-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-    .story-grid { grid-template-columns: 1fr; }
-    .story-block { border-right: none; }
-    .story-block:nth-last-child(-n+2) { border-bottom: 1px solid var(--border); }
-    .story-block:last-child { border-bottom: none; }
-    .projects-grid { grid-template-columns: 1fr; }
-    .cassetto-grid { grid-template-columns: 1fr; }
-    .stat-strip { grid-template-columns: 1fr; }
-    .role-item { grid-template-columns: 1fr; gap: 0.5rem; }
-    .contact-grid { grid-template-columns: 1fr; }
-    footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem; }
-  }
+/* ══════════════════════════════════════════════════════════
+   TOKEN SYSTEM — solo scala di grigi. Nessun colore.
+   ══════════════════════════════════════════════════════════ */
+:root{
+  --ink:      #0a0a0a;
+  --ink-2:    #101010;
+  --panel:    #161616;
+  --panel-2:  #1d1d1d;
+  --line:     #2b2b2b;
+  --line-2:   #3d3d3d;
+  --smoke:    #8c8c8c;
+  --ash:      #b4b4b4;
+  --chalk:    #e6e6e6;
+  --white:    #fafafa;
+
+  --display: 'Archivo', 'Arial Black', sans-serif;
+  --body:    'Instrument Sans', system-ui, sans-serif;
+  --mono:    'IBM Plex Mono', ui-monospace, monospace;
+
+  --nav-h:   68px;
+  --gutter:  clamp(1.25rem, 5vw, 5.5rem);
+  --band-y:  clamp(4.5rem, 9vw, 9rem);
+  --maxw:    1280px;
+  --ease:    cubic-bezier(.22,.61,.36,1);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+img,svg{display:block;max-width:100%}
+
+body{
+  background:var(--ink);
+  color:var(--ash);
+  font-family:var(--body);
+  font-size:16px;
+  line-height:1.7;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* immagini: forzate in scala di grigi a livello di documento */
+img{filter:grayscale(100%)}
+
+::selection{background:var(--chalk);color:var(--ink)}
+
+a{color:inherit}
+:focus-visible{outline:2px solid var(--white);outline-offset:3px}
+
+/* grana di pellicola */
+body::after{
+  content:'';position:fixed;inset:0;z-index:900;pointer-events:none;opacity:.42;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.05'/%3E%3C/svg%3E");
+}
+
+/* ── UTILITY ─────────────────────────────────────────── */
+.wrap{max-width:var(--maxw);margin:0 auto;padding-left:var(--gutter);padding-right:var(--gutter)}
+.band{padding-top:var(--band-y);padding-bottom:var(--band-y);position:relative}
+.band--alt{background:var(--ink-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+
+.eyebrow{
+  font-family:var(--mono);font-size:.7rem;font-weight:400;
+  letter-spacing:.28em;text-transform:uppercase;color:var(--smoke);
+  display:flex;align-items:center;gap:.85rem;margin-bottom:1.4rem;
+}
+.eyebrow::before{content:'';width:26px;height:1px;background:var(--line-2);flex:none}
+
+.h2{
+  font-family:var(--display);
+  font-variation-settings:'wdth' 118,'wght' 750;
+  font-size:clamp(2rem,5.2vw,4.2rem);
+  line-height:.96;letter-spacing:-.02em;
+  color:var(--white);text-transform:uppercase;
+  margin-bottom:1.6rem;
+}
+.h2 em{font-style:normal;color:var(--smoke)}
+
+.lead{font-size:clamp(1rem,1.5vw,1.14rem);color:var(--ash);max-width:64ch;line-height:1.8}
+.lead strong{color:var(--white);font-weight:600}
+.lead + .lead{margin-top:1.1rem}
+
+.mono-tag{
+  font-family:var(--mono);font-size:.66rem;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--smoke);
+}
+
+/* ── SCROLL PROGRESS ─────────────────────────────────── */
+#progress{
+  position:fixed;top:0;left:0;height:2px;width:0;
+  background:var(--white);z-index:6000;
+  box-shadow:0 0 12px rgba(250,250,250,.35);
+}
+
+/* ── NAV ─────────────────────────────────────────────── */
+nav{
+  position:fixed;top:0;left:0;right:0;height:var(--nav-h);z-index:5000;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 var(--gutter);
+  background:rgba(10,10,10,.82);
+  backdrop-filter:blur(18px) saturate(0);
+  -webkit-backdrop-filter:blur(18px) saturate(0);
+  border-bottom:1px solid var(--line);
+  transition:background .4s var(--ease);
+}
+.brand{
+  font-family:var(--display);font-variation-settings:'wdth' 112,'wght' 800;
+  font-size:.95rem;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--white);text-decoration:none;display:flex;align-items:center;gap:.6rem;
+}
+.brand i{
+  font-style:normal;font-family:var(--mono);font-size:.6rem;font-weight:400;
+  letter-spacing:.16em;color:var(--smoke);border:1px solid var(--line-2);
+  padding:.18rem .4rem;
+}
+.nav-links{display:flex;align-items:center;gap:2.1rem;list-style:none}
+.nav-links a{
+  font-family:var(--mono);font-size:.72rem;font-weight:400;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:var(--smoke);text-decoration:none;position:relative;padding:.35rem 0;
+  transition:color .3s var(--ease);
+}
+.nav-links a::after{
+  content:'';position:absolute;left:0;bottom:0;height:1px;width:0;
+  background:var(--white);transition:width .35s var(--ease);
+}
+.nav-links a:hover,.nav-links a.on{color:var(--white)}
+.nav-links a:hover::after,.nav-links a.on::after{width:100%}
+
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:1px solid var(--line-2);padding:.6rem;cursor:pointer}
+.burger span{display:block;width:18px;height:1px;background:var(--chalk);transition:transform .3s var(--ease),opacity .3s}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+/* ══ HERO ════════════════════════════════════════════ */
+#home{
+  position:relative;min-height:100svh;display:flex;align-items:flex-end;
+  padding-top:calc(var(--nav-h) + 3rem);padding-bottom:clamp(2rem,5vw,4rem);
+  overflow:hidden;
+}
+.hero-rule{
+  position:absolute;inset:0;pointer-events:none;z-index:0;
+  background-image:linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:calc(100% / 6) 100%;
+  opacity:.5;
+}
+.hero-inner{
+  position:relative;z-index:2;width:100%;max-width:var(--maxw);margin:0 auto;
+  padding:0 var(--gutter);
+  display:grid;grid-template-columns:1.35fr .85fr;gap:clamp(2rem,5vw,4.5rem);align-items:end;
+}
+
+.hero-meta{
+  display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2.2rem;
+}
+.hero-meta span{
+  font-family:var(--mono);font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--smoke);border:1px solid var(--line);padding:.35rem .7rem;
+}
+
+.hero-name{
+  font-family:var(--display);text-transform:uppercase;
+  font-size:clamp(3.1rem,12.5vw,10.5rem);
+  line-height:.84;letter-spacing:-.035em;margin-bottom:1.8rem;
+}
+.hero-name b{display:block;font-weight:400;font-variation-settings:'wdth' 122,'wght' 850;color:var(--white)}
+.hero-name u{
+  display:block;text-decoration:none;font-weight:400;
+  font-variation-settings:'wdth' 122,'wght' 850;
+  color:transparent;-webkit-text-stroke:1.5px var(--smoke);
+  transition:-webkit-text-stroke-color .6s var(--ease);
+}
+#home:hover .hero-name u{-webkit-text-stroke-color:var(--chalk)}
+
+.rotator{
+  font-family:var(--display);font-variation-settings:'wdth' 100,'wght' 500;
+  font-size:clamp(1.15rem,2.6vw,2rem);line-height:1.25;color:var(--chalk);
+  min-height:1.3em;margin-bottom:1.5rem;display:flex;align-items:baseline;gap:.55rem;
+}
+.rotator::before{content:'';width:.5rem;height:.5rem;background:var(--white);flex:none;transform:translateY(-.15em)}
+.rotator span{border-right:2px solid var(--smoke);padding-right:.15rem;white-space:nowrap;overflow:hidden}
+
+.hero-copy{font-size:1rem;color:var(--smoke);max-width:46ch;line-height:1.8;margin-bottom:2.4rem}
+.hero-copy b{color:var(--chalk);font-weight:600}
+
+.btn-row{display:flex;flex-wrap:wrap;gap:.85rem}
+.btn{
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;
+  text-decoration:none;padding:1rem 1.9rem;display:inline-flex;align-items:center;gap:.7rem;
+  border:1px solid var(--line-2);color:var(--chalk);background:transparent;
+  position:relative;overflow:hidden;transition:color .35s var(--ease),border-color .35s var(--ease);
+}
+.btn span{position:relative;z-index:1}
+.btn::before{
+  content:'';position:absolute;inset:0;background:var(--white);
+  transform:translateY(101%);transition:transform .4s var(--ease);z-index:0;
+}
+.btn:hover{color:var(--ink);border-color:var(--white)}
+.btn:hover::before{transform:translateY(0)}
+.btn--solid{background:var(--white);color:var(--ink);border-color:var(--white)}
+.btn--solid::before{background:var(--ink)}
+.btn--solid:hover{color:var(--white);border-color:var(--white)}
+
+/* ritratto con retino tipografico */
+.portrait{position:relative;align-self:end}
+.portrait-frame{position:relative;border:1px solid var(--line-2);overflow:hidden;background:var(--ink-2)}
+.portrait-frame img{
+  width:100%;height:auto;
+  filter:grayscale(100%) contrast(1.16) brightness(.92);
+  transform:scale(1.02);transition:transform 1.2s var(--ease),filter .8s var(--ease);
+}
+.portrait-frame:hover img{transform:scale(1.06);filter:grayscale(100%) contrast(1.28) brightness(1)}
+.portrait-frame::after{
+  content:'';position:absolute;inset:0;pointer-events:none;mix-blend-mode:soft-light;opacity:.7;
+  background-image:radial-gradient(rgba(250,250,250,.55) .8px,transparent .9px);
+  background-size:4px 4px;
+}
+.portrait-cap{
+  display:flex;justify-content:space-between;gap:1rem;margin-top:.7rem;
+  font-family:var(--mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--smoke);
+}
+
+.scroll-cue{
+  position:absolute;left:var(--gutter);bottom:1.4rem;z-index:3;
+  font-family:var(--mono);font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--line-2);display:flex;align-items:center;gap:.7rem;
+}
+.scroll-cue::after{content:'';width:34px;height:1px;background:var(--line-2);animation:cue 2.4s infinite}
+@keyframes cue{0%,100%{width:22px;opacity:.5}50%{width:46px;opacity:1}}
+
+/* ── TICKER ──────────────────────────────────────────── */
+.ticker{
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  background:var(--panel);overflow:hidden;padding:1.05rem 0;
+}
+.ticker-track{display:flex;width:max-content;animation:slide 42s linear infinite}
+.ticker:hover .ticker-track{animation-play-state:paused}
+.ticker-track > div{display:flex;align-items:center;flex:none}
+.ticker-track i{
+  font-style:normal;font-family:var(--display);
+  font-variation-settings:'wdth' 108,'wght' 700;
+  font-size:.98rem;letter-spacing:.05em;text-transform:uppercase;color:var(--chalk);
+  padding:0 1.5rem;white-space:nowrap;
+}
+.ticker-track b{color:var(--line-2);font-weight:400}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── STAT STRIP ──────────────────────────────────────── */
+.stats{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  border:1px solid var(--line);margin-top:3.5rem;
+}
+.stat{padding:2.3rem 2rem;border-right:1px solid var(--line);position:relative;transition:background .4s var(--ease)}
+.stat:last-child{border-right:none}
+.stat:hover{background:var(--panel)}
+.stat-n{
+  font-family:var(--display);font-variation-settings:'wdth' 122,'wght' 850;
+  font-size:clamp(2.6rem,5.5vw,4.4rem);line-height:.9;color:var(--white);margin-bottom:.6rem;
+}
+.stat-l{font-family:var(--mono);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--smoke);line-height:1.6}
+
+/* ── COSA FACCIO ─────────────────────────────────────── */
+.pillars{display:grid;grid-template-columns:repeat(2,1fr);border:1px solid var(--line);margin-top:3.2rem}
+.pillar{
+  padding:clamp(1.8rem,3vw,2.9rem);border-right:1px solid var(--line);border-bottom:1px solid var(--line);
+  position:relative;overflow:hidden;transition:background .4s var(--ease);
+}
+.pillar:nth-child(2n){border-right:none}
+.pillar:nth-last-child(-n+2){border-bottom:none}
+.pillar::before{
+  content:'';position:absolute;top:0;left:0;height:2px;width:0;background:var(--white);
+  transition:width .5s var(--ease);
+}
+.pillar:hover{background:var(--panel)}
+.pillar:hover::before{width:100%}
+.pillar-k{font-family:var(--mono);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--smoke);display:block;margin-bottom:1.5rem}
+.pillar h3{
+  font-family:var(--display);font-variation-settings:'wdth' 108,'wght' 700;
+  font-size:clamp(1.25rem,2.1vw,1.6rem);line-height:1.15;color:var(--white);
+  text-transform:uppercase;letter-spacing:-.01em;margin-bottom:.85rem;
+}
+.pillar p{font-size:.95rem;color:var(--smoke);line-height:1.8}
+.pillar ul{list-style:none;margin-top:1.2rem;display:flex;flex-wrap:wrap;gap:.4rem}
+.pillar li{font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ash);border:1px solid var(--line);padding:.28rem .55rem}
+
+/* ══ PERCORSO — elemento firma ════════════════════════ */
+.path{position:relative;margin-top:3.5rem;padding-left:clamp(2.6rem,6vw,5rem)}
+.rail{position:absolute;left:clamp(.7rem,2vw,1.6rem);top:.6rem;bottom:.6rem;width:1px;background:var(--line)}
+.rail-fill{position:absolute;left:0;top:0;width:1px;height:0;background:var(--white);box-shadow:0 0 10px rgba(250,250,250,.4)}
+
+.step{position:relative;padding:0 0 clamp(2.2rem,4vw,3.4rem) 0}
+.step:last-child{padding-bottom:0}
+.step-dot{
+  position:absolute;left:calc(clamp(2.6rem,6vw,5rem) * -1 + clamp(.7rem,2vw,1.6rem) - 4px);
+  top:.55rem;width:9px;height:9px;background:var(--ink);border:1px solid var(--line-2);
+  transition:background .4s var(--ease),border-color .4s var(--ease),transform .4s var(--ease);
+}
+.step.lit .step-dot{background:var(--white);border-color:var(--white);transform:scale(1.15)}
+
+.step-head{display:flex;align-items:baseline;flex-wrap:wrap;gap:.9rem;margin-bottom:.7rem}
+.step-n{font-family:var(--mono);font-size:.68rem;letter-spacing:.2em;color:var(--line-2);transition:color .4s var(--ease)}
+.step.lit .step-n{color:var(--smoke)}
+.step-kind{font-family:var(--mono);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--smoke);border:1px solid var(--line);padding:.22rem .5rem}
+.step h3{
+  font-family:var(--display);font-variation-settings:'wdth' 115,'wght' 800;
+  font-size:clamp(1.5rem,3.6vw,2.6rem);line-height:1;text-transform:uppercase;
+  letter-spacing:-.02em;color:var(--white);
+}
+.step h3 a{text-decoration:none;position:relative;display:inline-block}
+.step h3 a::after{content:'';position:absolute;left:0;bottom:-.1em;height:2px;width:100%;background:var(--line-2);transition:background .35s var(--ease)}
+.step h3 a:hover::after{background:var(--white)}
+.step h3 a sup{font-size:.32em;font-variation-settings:'wdth' 90,'wght' 500;vertical-align:super;color:var(--smoke);margin-left:.35em;letter-spacing:.08em}
+.step p{font-size:.99rem;color:var(--smoke);line-height:1.82;max-width:62ch}
+.step p b{color:var(--chalk);font-weight:600}
+.step-sub{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);margin-top:1.4rem;
+}
+.step-sub div{background:var(--ink);padding:1.2rem 1.3rem;transition:background .35s var(--ease)}
+.band--alt .step-sub div{background:var(--ink-2)}
+.step-sub div:hover{background:var(--panel)}
+.step-sub strong{
+  display:block;font-family:var(--display);font-variation-settings:'wdth' 105,'wght' 700;
+  font-size:.98rem;text-transform:uppercase;letter-spacing:.02em;color:var(--white);margin-bottom:.4rem;
+}
+.step-sub span{font-size:.85rem;color:var(--smoke);line-height:1.65}
+
+/* ── BANNER STRIP ────────────────────────────────────── */
+.strip{position:relative;height:clamp(240px,38vw,420px);overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.strip img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;
+  filter:grayscale(100%) contrast(1.1) brightness(.5);
+}
+.strip::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(10,10,10,.94) 0%,rgba(10,10,10,.6) 55%,rgba(10,10,10,.3) 100%);
+}
+.strip-txt{
+  position:absolute;inset:0;z-index:2;display:flex;align-items:center;
+  max-width:var(--maxw);margin:0 auto;padding:0 var(--gutter);
+}
+.strip-txt blockquote{max-width:44ch}
+.strip-txt p{
+  font-family:var(--display);font-variation-settings:'wdth' 104,'wght' 500;
+  font-size:clamp(1.15rem,2.9vw,2.15rem);line-height:1.22;color:var(--white);letter-spacing:-.01em;
+}
+.strip-txt cite{
+  display:block;margin-top:1.2rem;font-style:normal;
+  font-family:var(--mono);font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;color:var(--smoke);
+}
+
+/* ── ECOSISTEMA (filtri) ─────────────────────────────── */
+.filters{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:2.4rem}
+.chip{
+  font-family:var(--mono);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;
+  background:transparent;border:1px solid var(--line-2);color:var(--smoke);
+  padding:.55rem 1.05rem;cursor:pointer;transition:all .3s var(--ease);
+}
+.chip:hover{color:var(--white);border-color:var(--ash)}
+.chip[aria-pressed="true"]{background:var(--white);border-color:var(--white);color:var(--ink)}
+
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:1.8rem}
+.card{
+  background:var(--ink-2);padding:clamp(1.6rem,2.6vw,2.3rem);
+  text-decoration:none;color:inherit;display:flex;flex-direction:column;
+  position:relative;overflow:hidden;min-height:230px;
+  transition:background .4s var(--ease),opacity .35s var(--ease),transform .35s var(--ease);
+}
+.card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:0;background:var(--white);transition:width .4s var(--ease)}
+.card:hover{background:var(--panel-2)}
+.card:hover::before{width:2px}
+.card.hide{display:none}
+.card-kind{font-family:var(--mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--smoke);margin-bottom:1.4rem}
+.card h3{
+  font-family:var(--display);font-variation-settings:'wdth' 112,'wght' 780;
+  font-size:1.35rem;line-height:1.05;text-transform:uppercase;letter-spacing:-.01em;
+  color:var(--white);margin-bottom:.7rem;
+}
+.card p{font-size:.9rem;color:var(--smoke);line-height:1.72}
+.card-go{
+  margin-top:auto;padding-top:1.4rem;font-family:var(--mono);font-size:.64rem;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--ash);
+  display:inline-flex;align-items:center;gap:.5rem;
+}
+.card-go::after{content:'→';transition:transform .35s var(--ease)}
+.card:hover .card-go{color:var(--white)}
+.card:hover .card-go::after{transform:translateX(6px)}
+.card--quiet .card-kind,.card--quiet h3{color:var(--ash)}
+.card--quiet h3{color:var(--chalk)}
+
+/* ── METODO ──────────────────────────────────────────── */
+.method{counter-reset:m;margin-top:3.2rem;border-top:1px solid var(--line)}
+.mrow{
+  display:grid;grid-template-columns:5.5rem 1fr 1.35fr;gap:clamp(1rem,3vw,2.5rem);
+  padding:2rem 0;border-bottom:1px solid var(--line);align-items:start;
+  transition:background .35s var(--ease);
+}
+.mrow:hover{background:var(--panel)}
+.mrow-n{font-family:var(--mono);font-size:.72rem;letter-spacing:.2em;color:var(--smoke);padding-top:.35rem}
+.mrow h3{
+  font-family:var(--display);font-variation-settings:'wdth' 110,'wght' 720;
+  font-size:clamp(1.1rem,2vw,1.45rem);line-height:1.14;text-transform:uppercase;
+  letter-spacing:-.01em;color:var(--white);
+}
+.mrow p{font-size:.94rem;color:var(--smoke);line-height:1.8}
+
+/* ── SETTORI ─────────────────────────────────────────── */
+.sectors{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:2.4rem}
+.sectors span{
+  font-family:var(--mono);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ash);border:1px solid var(--line-2);padding:.5rem .9rem;
+  transition:background .3s var(--ease),color .3s var(--ease);
+}
+.sectors span:hover{background:var(--white);color:var(--ink)}
+
+/* ── CONTATTI ────────────────────────────────────────── */
+.contacts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:3rem}
+.contact{background:var(--ink);padding:clamp(1.7rem,3vw,2.4rem);transition:background .4s var(--ease)}
+.band--alt .contact{background:var(--ink-2)}
+.contact:hover{background:var(--panel)}
+.contact-l{font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--smoke);margin-bottom:.9rem}
+.contact a{
+  font-family:var(--display);font-variation-settings:'wdth' 100,'wght' 600;
+  font-size:clamp(.95rem,1.5vw,1.12rem);color:var(--white);text-decoration:none;
+  display:inline-flex;align-items:center;gap:.55rem;word-break:break-word;
+  border-bottom:1px solid var(--line-2);padding-bottom:.15rem;transition:border-color .3s var(--ease)
+}
+.contact a:hover{border-color:var(--white)}
+.contact svg{width:15px;height:15px;fill:currentColor;flex:none;opacity:.75}
+
+.watermark{
+  position:absolute;right:-.5rem;bottom:-4vw;z-index:0;pointer-events:none;
+  font-family:var(--display);font-variation-settings:'wdth' 125,'wght' 900;
+  font-size:clamp(9rem,26vw,22rem);line-height:.75;letter-spacing:-.06em;
+  color:transparent;-webkit-text-stroke:1px rgba(250,250,250,.05);
+}
+
+/* ── FOOTER ──────────────────────────────────────────── */
+footer{
+  border-top:1px solid var(--line);background:var(--ink);
+  padding:2.2rem var(--gutter);
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;
+}
+footer span,footer a{
+  font-family:var(--mono);font-size:.63rem;letter-spacing:.16em;text-transform:uppercase;color:var(--smoke);
+  text-decoration:none;
+}
+footer a:hover{color:var(--white)}
+
+/* ── REVEAL ──────────────────────────────────────────── */
+.rv{opacity:1;transform:none;transition:opacity .85s var(--ease),transform .85s var(--ease)}
+.rv.pre{opacity:0;transform:translateY(26px)}
+.d1{transition-delay:.09s}.d2{transition-delay:.18s}.d3{transition-delay:.27s}.d4{transition-delay:.36s}
+
+/* ── RESPONSIVE ──────────────────────────────────────── */
+@media (max-width:1080px){
+  .cards{grid-template-columns:repeat(2,1fr)}
+  .contacts{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:920px){
+  .nav-links{
+    display:none;position:absolute;top:var(--nav-h);left:0;right:0;flex-direction:column;
+    align-items:flex-start;gap:1.35rem;background:rgba(10,10,10,.98);
+    padding:1.8rem var(--gutter);border-bottom:1px solid var(--line);
+  }
+  .nav-links.open{display:flex}
+  .burger{display:flex}
+  #home{align-items:center;padding-bottom:5rem}
+  .hero-inner{grid-template-columns:1fr;align-items:start}
+  .portrait{max-width:340px;margin-top:.5rem}
+  .stats{grid-template-columns:1fr}
+  .stat{border-right:none;border-bottom:1px solid var(--line)}
+  .stat:last-child{border-bottom:none}
+  .pillars{grid-template-columns:1fr}
+  .pillar{border-right:none;border-bottom:1px solid var(--line)}
+  .pillar:last-child{border-bottom:none}
+  .mrow{grid-template-columns:1fr;gap:.7rem}
+  .mrow-n{padding-top:0}
+  .cards{grid-template-columns:1fr}
+  .contacts{grid-template-columns:1fr}
+  footer{justify-content:flex-start;gap:.6rem;flex-direction:column;align-items:flex-start}
+}
+@media (max-width:560px){
+  .hero-rule{background-size:calc(100% / 3) 100%}
+  .scroll-cue{display:none}
+  .portrait{max-width:100%}
+}
+
+/* fallback: se il browser non supporta il contorno, il testo torna pieno */
+@supports not (-webkit-text-stroke: 1px #fff){
+  .hero-name u{color:var(--smoke)}
+  .watermark{color:rgba(250,250,250,.035)}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+  .rv.pre{opacity:1;transform:none}
+}
 </style>
 </head>
 <body>
- 
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
- 
-<!-- NAVBAR -->
-<nav id="navbar">
-  <a href="#home" class="nav-logo">Luca <span>Morozzi</span></a>
-  <button class="nav-toggle" id="navToggle" aria-label="Menu">
+
+<div id="progress" aria-hidden="true"></div>
+
+<!-- ═══ NAV ═══ -->
+<nav>
+  <a href="#home" class="brand">Luca Morozzi <i>LM</i></a>
+  <button class="burger" id="burger" aria-label="Apri il menu" aria-expanded="false" aria-controls="navLinks">
     <span></span><span></span><span></span>
   </button>
   <ul class="nav-links" id="navLinks">
-    <li><a href="#chi-sono">Competenze</a></li>
-    <li><a href="#ruoli">Ruoli ricoperti</a></li>
-    <li><a href="#capital-bridge">Capital Bridge</a></li>
-    <li><a href="#progetti-attivi">Progetti attivi</a></li>
-    <li><a href="#cassetto">Nel cassetto</a></li>
+    <li><a href="#cosa-faccio">Cosa faccio</a></li>
+    <li><a href="#percorso">Percorso</a></li>
+    <li><a href="#ecosistema">Ecosistema</a></li>
+    <li><a href="#metodo">Metodo</a></li>
     <li><a href="#contatti">Contatti</a></li>
   </ul>
 </nav>
- 
-<!-- HOME / HERO — immagine sfondo fullscreen -->
-<section id="home">
-  <div class="hero-bg">
-    <img src="banner_grayscale.jpg" alt="Luca Morozzi">
-  </div>
-  <div class="hero-grid-overlay"></div>
-  <div class="hero-content">
-    <div class="hero-tag">Imprenditore · Fractional CFO · Venture Builder</div>
-    <h1 class="hero-name">Luca Morozzi</h1>
-    <div class="hero-divider"></div>
 
-    <a href="#chi-sono" class="hero-cta">Competenze & Ruoli</a>
-    <div class="scroll-hint">Scorri per scoprire</div>
+<!-- ═══ HERO ═══ -->
+<header id="home">
+  <div class="hero-rule" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-meta">
+        <span>Imprenditore</span>
+        <span>Business builder</span>
+        <span>Emilia-Romagna · IT</span>
+      </div>
+      <h1 class="hero-name"><b>Luca</b><u>Morozzi</u></h1>
+      <div class="rotator" aria-live="off"><span id="rot"></span></div>
+      <p class="hero-copy">Fondo aziende e ne costruisco le linee di business: dall'idea al primo cliente, dal team alla struttura finanziaria. <b>Sei realtà avviate</b> tra software, servizi gestiti, legaltech e procurement — e i piani economici che le tengono in piedi.</p>
+      <div class="btn-row">
+        <a href="#percorso" class="btn btn--solid"><span>Guarda il percorso</span></a>
+        <a href="#contatti" class="btn"><span>Parliamone</span></a>
+      </div>
+    </div>
+
+    <figure class="portrait">
+      <div class="portrait-frame">
+        <img src="portrait_grayscale.png" alt="Ritratto di Luca Morozzi" width="990" height="1330" fetchpriority="high">
+      </div>
+      <figcaption class="portrait-cap"><span>Luca Morozzi</span><span>Fusignano (RA)</span></figcaption>
+    </figure>
+  </div>
+  <div class="scroll-cue" aria-hidden="true">Scorri</div>
+</header>
+
+<!-- ═══ TICKER ═══ -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <div>
+      <i>Giamor Group</i><i><b>◆</b></i><i>Wabbuo</i><i><b>◆</b></i><i>Reparto Tecnologico</i><i><b>◆</b></i><i>Sartoria Notarile</i><i><b>◆</b></i><i>QueMatch</i><i><b>◆</b></i><i>Atlas</i><i><b>◆</b></i><i>Arkimat Connect</i><i><b>◆</b></i><i>Arkipay</i><i><b>◆</b></i>
+    </div>
+    <div>
+      <i>Giamor Group</i><i><b>◆</b></i><i>Wabbuo</i><i><b>◆</b></i><i>Reparto Tecnologico</i><i><b>◆</b></i><i>Sartoria Notarile</i><i><b>◆</b></i><i>QueMatch</i><i><b>◆</b></i><i>Atlas</i><i><b>◆</b></i><i>Arkimat Connect</i><i><b>◆</b></i><i>Arkipay</i><i><b>◆</b></i>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ COSA FACCIO ═══ -->
+<section class="band" id="cosa-faccio">
+  <div class="wrap">
+    <div class="eyebrow rv">Cosa faccio</div>
+    <h2 class="h2 rv d1">Costruisco imprese,<br><em>non presentazioni.</em></h2>
+    <p class="lead rv d2">Il mio lavoro è portare un'idea allo stato di azienda che funziona: <strong>modello di business, team, mercato e numeri</strong>. Non mi fermo alla strategia — resto dentro l'operatività finché la macchina gira da sola.</p>
+
+    <div class="stats rv d2">
+      <div class="stat">
+        <div class="stat-n" data-count="2">0</div>
+        <div class="stat-l">Aziende fondate</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n" data-count="4">0</div>
+        <div class="stat-l">Linee di business create</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n" data-count="2">0</div>
+        <div class="stat-l">Progetti in testing con Arkimat</div>
+      </div>
+    </div>
+
+    <div class="pillars rv d3">
+      <article class="pillar">
+        <span class="pillar-k">Creazione d'impresa</span>
+        <h3>Dall'idea alla società operativa</h3>
+        <p>Validazione del modello, costruzione dell'offerta, scelta della forma societaria, contrattualistica e messa a terra dei processi. Una nuova impresa non nasce da un pitch: nasce dal primo cliente pagante.</p>
+        <ul><li>Modello di business</li><li>Setup societario</li><li>Contratti</li><li>Go-to-market</li></ul>
+      </article>
+
+      <article class="pillar">
+        <span class="pillar-k">Sviluppo business</span>
+        <h3>Mercato, offerta, pipeline</h3>
+        <p>Posizionamento, pricing, costruzione della pipeline commerciale e partnership. Progetto listini parametrici e processi di vendita replicabili, perché la crescita deve essere un sistema, non un colpo di fortuna.</p>
+        <ul><li>Pricing</li><li>Pipeline</li><li>Partnership</li><li>Verticali</li></ul>
+      </article>
+
+      <article class="pillar">
+        <span class="pillar-k">Team</span>
+        <h3>Costruzione delle squadre</h3>
+        <p>Individuo le persone chiave, definisco ruoli e responsabilità e costruisco gli schemi di incentivo che tengono insieme interessi diversi. Un team ben disegnato è la prima infrastruttura di un'azienda.</p>
+        <ul><li>Ruoli</li><li>Incentivi</li><li>Accordi</li><li>Governance</li></ul>
+      </article>
+
+      <article class="pillar">
+        <span class="pillar-k">Finanza</span>
+        <h3>Pianificazione finanziaria e business plan</h3>
+        <p>Piani economico-finanziari, cash flow, analisi di sostenibilità e scenari. Preparo business plan per piani di finanziamento — credito bancario, bandi e agevolazioni — con numeri che reggono la lettura di un istruttore.</p>
+        <ul><li>Business plan</li><li>Cash flow</li><li>Scenari</li><li>Piani di finanziamento</li></ul>
+      </article>
+    </div>
   </div>
 </section>
- 
-<!-- COMPETENZE -->
-<div id="chi-sono" class="section-outer alt">
-  <div class="section-wrap">
-    <div class="section-label reveal">Competenze</div>
-    <h2 class="section-title reveal reveal-delay-1">Aree di attività.</h2>
- 
-    <div class="story-grid reveal reveal-delay-2">
-      <div class="story-block">
-        <span class="story-num">01 — Finance</span>
-        <h3>CFO &amp; Controllo di gestione</h3>
-        <p>Pianificazione finanziaria, cash flow management, budgeting e forecasting. Strutturazione di modelli economici per PMI. Reporting e KPI operativi.</p>
-      </div>
-      <div class="story-block">
-        <span class="story-num">02 — Strategy</span>
-        <h3>Business Development</h3>
-        <p>Sviluppo di modelli di business scalabili, partnership strategiche, strutturazione di reti d'impresa. Analisi di mercato e posizionamento competitivo.</p>
-      </div>
-      <div class="story-block">
-        <span class="story-num">05 — Data</span>
-        <h3>Modelli quantitativi</h3>
-        <p>Costruzione di modelli parametrici e simulatori. Applicazione di logiche statistiche e algoritmiche a problemi finanziari e operativi.</p>
-      </div>
-      <div class="story-block">
-        <span class="story-num">06 — M&amp;A</span>
-        <h3>Valutazione d'impresa</h3>
-        <p>Valutazione di PMI italiane per operazioni di M&amp;A, accordi tra soci, passaggi generazionali. Enterprise value, due diligence finanziaria.</p>
-      </div>
+
+<!-- ═══ PERCORSO — elemento firma ═══ -->
+<section class="band band--alt" id="percorso">
+  <div class="wrap">
+    <div class="eyebrow rv">Percorso · In ordine</div>
+    <h2 class="h2 rv d1">Cosa ho costruito,<br><em>nell'ordine in cui l'ho fatto.</em></h2>
+    <p class="lead rv d2">Prima l'azienda madre, poi il prodotto, poi le linee di business che stanno in piedi da sole. Ogni passaggio nasce dal precedente.</p>
+
+    <div class="path rv d2">
+      <div class="rail" aria-hidden="true"><div class="rail-fill" id="railFill"></div></div>
+
+      <article class="step">
+        <span class="step-dot" aria-hidden="true"></span>
+        <div class="step-head">
+          <span class="step-n">01</span>
+          <span class="step-kind">Fondazione</span>
+        </div>
+        <h3><a href="https://giamor.it" target="_blank" rel="noopener">Giamor Group<sup>giamor.it</sup></a></h3>
+        <p>L'azienda da cui parte tutto. Startup innovativa che opera su <b>intelligenza artificiale, hyperautomation e servizi IT gestiti</b>, con una direzione consulenziale sui progetti di trasformazione delle PMI. Qui ho costruito il gruppo, la struttura commerciale e l'impianto economico-finanziario.</p>
+      </article>
+
+      <article class="step">
+        <span class="step-dot" aria-hidden="true"></span>
+        <div class="step-head">
+          <span class="step-n">02</span>
+          <span class="step-kind">Fondazione</span>
+        </div>
+        <h3><a href="https://wabbuo.com" target="_blank" rel="noopener">Wabbuo<sup>wabbuo.com</sup></a></h3>
+        <p>Un'app per centralizzare la presenza online di professionisti, lavoratori e piccole imprese: <b>un unico hub di identità digitale</b> al posto di dieci profili scollegati. Prodotto proprietario, pensato per un mercato ampio e frammentato.</p>
+      </article>
+
+      <article class="step">
+        <span class="step-dot" aria-hidden="true"></span>
+        <div class="step-head">
+          <span class="step-n">03</span>
+          <span class="step-kind">Linea di business</span>
+        </div>
+        <h3><a href="https://repartotecnologico.it" target="_blank" rel="noopener">Reparto Tecnologico<sup>repartotecnologico.it</sup></a></h3>
+        <p>Il reparto IT esterno delle PMI italiane: <b>servizi gestiti, infrastruttura e automazione</b> erogati come funzione interna in outsourcing. Costruito su un modello a canone, con listini parametrici e contratti di servizio standardizzati.</p>
+      </article>
+
+      <article class="step">
+        <span class="step-dot" aria-hidden="true"></span>
+        <div class="step-head">
+          <span class="step-n">04</span>
+          <span class="step-kind">Linea di business</span>
+        </div>
+        <h3><a href="https://sartorianotarile.it" target="_blank" rel="noopener">Sartoria Notarile<sup>sartorianotarile.it</sup></a></h3>
+        <p>Back office in outsourcing per studi notarili. <b>Flussi documentali, gestione degli atti e supporto AI</b> alle attività amministrative, su processi mappati attività per attività e pacchetti di servizio a livelli crescenti. Un servizio cucito su misura sul modo in cui lavora davvero uno studio.</p>
+      </article>
+
+      <article class="step">
+        <span class="step-dot" aria-hidden="true"></span>
+        <div class="step-head">
+          <span class="step-n">05</span>
+          <span class="step-kind">Linea di business</span>
+        </div>
+        <h3><a href="https://quematch.it" target="_blank" rel="noopener">QueMatch<sup>quematch.it</sup></a></h3>
+        <p>Recruiting AI-supported. Filtra i candidati e genera <b>score e ranking di affinità</b> con il datore di lavoro: meno tempo di selezione, più precisione sulla shortlist. Metodologia di ranking proprietaria.</p>
+      </article>
+
+      <article class="step">
+        <span class="step-dot" aria-hidden="true"></span>
+        <div class="step-head">
+          <span class="step-n">06</span>
+          <span class="step-kind">Linea di business</span>
+        </div>
+        <h3>Atlas</h3>
+        <p>Il valutatore d'impresa intelligente per le PMI. Costruisce l'<b>enterprise value</b> con approccio multi-metodo — DCF, multipli comparabili, football field — e produce un report leggibile insieme alla <b>strategia negoziale</b>: cosa vale, perché vale, e come si porta al tavolo. Utile in M&amp;A, accordi tra soci e passaggi generazionali.</p>
+      </article>
+
+      <article class="step">
+        <span class="step-dot" aria-hidden="true"></span>
+        <div class="step-head">
+          <span class="step-n">07</span>
+          <span class="step-kind">Collaborazione</span>
+        </div>
+        <h3><a href="https://www.arkimat.com" target="_blank" rel="noopener">Arkimat<sup>arkimat.com</sup></a></h3>
+        <p>Collaborazione sul procurement indiretto, dove lavoro allo sviluppo di due progetti oggi <b>in fase di testing</b>.</p>
+        <div class="step-sub">
+          <div>
+            <strong>Connect</strong>
+            <span>Nuovo e-procurement integrato: catalogo, ordine e ciclo passivo in un unico flusso continuo tra azienda e fornitori.</span>
+          </div>
+          <div>
+            <strong>Arkipay</strong>
+            <span>Dynamic discount sulla supply chain: sconto per pagamento anticipato calcolato sui dati, a beneficio di entrambi i lati della filiera.</span>
+          </div>
+        </div>
+      </article>
     </div>
   </div>
-</div>
- 
-<!-- RUOLI RICOPERTI -->
-<div id="ruoli" class="section-outer">
-  <div class="section-wrap">
-    <div class="ruoli-inner">
-      <div>
-        <div class="section-label reveal">Oggi</div>
-        <h2 class="section-title reveal reveal-delay-1">Ruoli attuali.</h2>
-        <div class="roles-list reveal reveal-delay-2">
-          <div class="role-item">
-            <div class="role-company">Giamor Group</div>
-            <div class="role-title">Co-fondatore · Direzione finanziaria e Sviluppo commerciale</div>
-            <div class="role-badge">Attivo</div>
-          </div>
-          <div class="role-item">
-            <div class="role-company">Digital Bridge Group</div>
-            <div class="role-title">Co-fondatore · Fractional CFO · Business Development</div>
-            <div class="role-badge">Attivo</div>
-          </div>
-          <div class="role-item">
-            <div class="role-company">Arkimat</div>
-            <div class="role-title">Consigliere di Amministrazione · Fractional CFO · Business Development</div>
-            <div class="role-badge">Attivo</div>
-          </div>
-          <div class="role-item">
-            <div class="role-company">QueMatch</div>
-            <div class="role-title">Co-fondatore · Direzione finanziaria e Sviluppo commerciale</div>
-            <div class="role-badge">Attivo</div>
-          </div>
+</section>
 
-        </div>
-      </div>
-      <div class="reveal reveal-delay-2">
-        <div class="stat-strip">
-          <div class="stat-item">
-            <div class="stat-num">9</div>
-            <div class="stat-label">Venture fondati o partecipati</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-num">5</div>
-            <div class="stat-label">Operativi oggi</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-num">4</div>
-            <div class="stat-label">In sviluppo o nel cassetto</div>
-          </div>
-        </div>
-        <div style="margin-top:2rem;padding:2rem;border:1px solid var(--border);background:var(--surface2);position:relative;overflow:hidden;">
-          <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent);box-shadow:0 0 8px var(--accent);"></div>
-          <div class="section-label" style="margin-bottom:1.5rem;">Settori</div>
-          <div style="display:flex;flex-wrap:wrap;gap:0.6rem;">
-            <span style="font-family:'JetBrains Mono',monospace;font-size:0.70rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent2);border:1px solid var(--border);padding:0.35rem 0.75rem;background:rgba(0,229,255,0.04);">Fintech</span>
-            <span style="font-family:'JetBrains Mono',monospace;font-size:0.70rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent2);border:1px solid var(--border);padding:0.35rem 0.75rem;background:rgba(0,229,255,0.04);">HR Tech</span>
-            <span style="font-family:'JetBrains Mono',monospace;font-size:0.70rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent2);border:1px solid var(--border);padding:0.35rem 0.75rem;background:rgba(0,229,255,0.04);">SaaS</span>
-            <span style="font-family:'JetBrains Mono',monospace;font-size:0.70rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent2);border:1px solid var(--border);padding:0.35rem 0.75rem;background:rgba(0,229,255,0.04);">Hyper Automation</span>
-            <span style="font-family:'JetBrains Mono',monospace;font-size:0.70rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent2);border:1px solid var(--border);padding:0.35rem 0.75rem;background:rgba(0,229,255,0.04);">AI</span>
-            <span style="font-family:'JetBrains Mono',monospace;font-size:0.70rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent2);border:1px solid var(--border);padding:0.35rem 0.75rem;background:rgba(0,229,255,0.04);">Procurement</span>
-            <span style="font-family:'JetBrains Mono',monospace;font-size:0.70rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent2);border:1px solid var(--border);padding:0.35rem 0.75rem;background:rgba(0,229,255,0.04);">LegalTech</span>
-            <span style="font-family:'JetBrains Mono',monospace;font-size:0.70rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent2);border:1px solid var(--border);padding:0.35rem 0.75rem;background:rgba(0,229,255,0.04);">M&amp;A</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
- 
-<!-- GIAMOR CAPITAL BRIDGE -->
-<div id="capital-bridge" class="section-outer alt">
-  <div class="section-wrap">
-    <div class="section-label reveal">Servizio Premium</div>
-    <h2 class="section-title reveal reveal-delay-1">Giamor Capital Bridge.</h2>
-    <p class="lead reveal reveal-delay-2">Un servizio esclusivo di <strong>Giamor Group</strong> per le PMI italiane che vogliono fare il salto di qualità. Dalla diagnosi alla delivery, un unico interlocutore.</p>
-
-    <div style="margin-top:3.5rem;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);" class="reveal reveal-delay-2">
-
-      <div style="background:var(--surface2);padding:2.5rem;position:relative;overflow:hidden;transition:background 0.3s;" onmouseenter="this.style.background='var(--surface)'" onmouseleave="this.style.background='var(--surface2)'">
-        <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));box-shadow:0 0 8px var(--accent);"></div>
-        <div style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.18em;color:var(--accent2);text-transform:uppercase;margin-bottom:1rem;">01 — Valutazione</div>
-        <div style="font-size:1.15rem;font-weight:600;color:#d8ecff;margin-bottom:0.75rem;line-height:1.3;">Analisi e Progettazione</div>
-        <p style="font-size:0.92rem;line-height:1.82;color:rgba(180,200,220,0.6);">Valutazione del progetto di sviluppo aziendale, mappatura dei processi da automatizzare, identificazione delle leve tecnologiche e definizione degli obiettivi di impatto.</p>
-      </div>
-
-      <div style="background:var(--surface2);padding:2.5rem;position:relative;overflow:hidden;transition:background 0.3s;" onmouseenter="this.style.background='var(--surface)'" onmouseleave="this.style.background='var(--surface2)'">
-        <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));box-shadow:0 0 8px var(--accent);"></div>
-        <div style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.18em;color:var(--accent2);text-transform:uppercase;margin-bottom:1rem;">02 — Piano Economico</div>
-        <div style="font-size:1.15rem;font-weight:600;color:#d8ecff;margin-bottom:0.75rem;line-height:1.3;">Modello Finanziario Sostenibile</div>
-        <p style="font-size:0.92rem;line-height:1.82;color:rgba(180,200,220,0.6);">Elaborazione di piani economici dettagliati, analisi di sostenibilità, modellazione degli scenari e strutturazione dell'investimento con logiche di ritorno verificabili.</p>
-      </div>
-
-      <div style="background:var(--surface2);padding:2.5rem;position:relative;overflow:hidden;transition:background 0.3s;border-top:1px solid var(--border);" onmouseenter="this.style.background='var(--surface)'" onmouseleave="this.style.background='var(--surface2)'">
-        <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));box-shadow:0 0 8px var(--accent);"></div>
-        <div style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.18em;color:var(--accent2);text-transform:uppercase;margin-bottom:1rem;">03 — Finanziamento</div>
-        <div style="font-size:1.15rem;font-weight:600;color:#d8ecff;margin-bottom:0.75rem;line-height:1.3;">Accesso al Credito Ottimale</div>
-        <p style="font-size:0.92rem;line-height:1.82;color:rgba(180,200,220,0.6);">Individuazione e gestione degli strumenti più convenienti: bandi, fondi PNRR, agevolazioni Industria 5.0, credito bancario e finanza alternativa alle condizioni migliori.</p>
-      </div>
-
-      <div style="background:var(--surface2);padding:2.5rem;position:relative;overflow:hidden;transition:background 0.3s;border-top:1px solid var(--border);" onmouseenter="this.style.background='var(--surface)'" onmouseleave="this.style.background='var(--surface2)'">
-        <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));box-shadow:0 0 8px var(--accent);"></div>
-        <div style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.18em;color:var(--accent2);text-transform:uppercase;margin-bottom:1rem;">04 — Delivery</div>
-        <div style="font-size:1.15rem;font-weight:600;color:#d8ecff;margin-bottom:0.75rem;line-height:1.3;">Realizzazione Chiavi in Mano</div>
-        <p style="font-size:0.92rem;line-height:1.82;color:rgba(180,200,220,0.6);">Sviluppo tecnologico, integrazione di sistemi AI e automazione, gestione del progetto fino alla messa in produzione. Un unico fornitore dalla progettazione alla realizzazione.</p>
-      </div>
-
-    </div>
-
-    <div style="margin-top:2.5rem;padding:2rem 2.5rem;border:1px solid var(--border2);background:rgba(56,182,255,0.04);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;" class="reveal reveal-delay-3">
-      <div style="display:flex;flex-wrap:wrap;gap:0.6rem;align-items:center;">
-        <span style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent2);border:1px solid var(--border);padding:0.35rem 0.75rem;background:rgba(0,229,255,0.04);">Industria 5.0</span>
-        <span style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent2);border:1px solid var(--border);padding:0.35rem 0.75rem;background:rgba(0,229,255,0.04);">Hyper Automation</span>
-        <span style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent2);border:1px solid var(--border);padding:0.35rem 0.75rem;background:rgba(0,229,255,0.04);">AI</span>
-        <span style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent2);border:1px solid var(--border);padding:0.35rem 0.75rem;background:rgba(0,229,255,0.04);">PMI Italiane</span>
-      </div>
-      <a href="#contatti" style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);text-decoration:none;border:1px solid var(--border2);padding:0.75rem 1.75rem;background:rgba(56,182,255,0.05);transition:all 0.3s;white-space:nowrap;" onmouseenter="this.style.borderColor='var(--accent)';this.style.color='#fff'" onmouseleave="this.style.borderColor='var(--border2)';this.style.color='var(--accent)'">Parliamone →</a>
-    </div>
-
+<!-- ═══ STRIP ═══ -->
+<div class="strip">
+  <img src="banner_grayscale.jpg" alt="Luca Morozzi al lavoro" width="1400" height="340" loading="lazy">
+  <div class="strip-txt">
+    <blockquote>
+      <p>Un'azienda non si racconta. Si apre, si fanno i conti, e si vede se sta in piedi.</p>
+      <cite>Metodo di lavoro</cite>
+    </blockquote>
   </div>
 </div>
 
-<!-- PROGETTI ATTIVI -->
-<div id="progetti-attivi" class="section-outer alt">
-  <div class="section-wrap">
-    <div class="section-label reveal">Ecosistema</div>
-    <h2 class="section-title reveal reveal-delay-1">Progetti attivi<br>&amp; in sviluppo.</h2>
- 
-    <div class="cassetto-grid">
-      <a href="https://giamorgroup.it" target="_blank" class="cassetto-card reveal" style="text-decoration: none; opacity: 1;">
-        <div class="cassetto-type">Fintech · Attivo</div>
-        <div class="cassetto-name">Giamor Group</div>
-        <p class="cassetto-desc">Servizi fintech innovativi. Piattaforma di gestione finanziaria pensata per il mercato italiano, con focus su accessibilità e scalabilità.</p>
-        <div style="font-family:'JetBrains Mono',monospace; font-size:0.72rem; color:var(--accent); margin-top:1.25rem; text-transform:uppercase; letter-spacing:0.12em;">giamorgroup.it →</div>
-      </a>
+<!-- ═══ ECOSISTEMA ═══ -->
+<section class="band" id="ecosistema">
+  <div class="wrap">
+    <div class="eyebrow rv">Ecosistema</div>
+    <h2 class="h2 rv d1">Tutto quello<br><em>che ho in mano.</em></h2>
+    <p class="lead rv d2">Realtà operative, progetti in testing e cose progettate che aspettano il momento giusto. Filtra per stato.</p>
 
-      <a href="https://digitalbridgegroup.it" target="_blank" class="cassetto-card reveal reveal-delay-1" style="text-decoration: none; opacity: 1;">
-        <div class="cassetto-type">Holding Operativa · Attivo</div>
-        <div class="cassetto-name">Digital Bridge Group</div>
-        <p class="cassetto-desc">Rete di PMI tecnologiche italiane e holding operativa. Aggregatore di competenze digitali per competere su scala europea.</p>
-        <div style="font-family:'JetBrains Mono',monospace; font-size:0.72rem; color:var(--accent); margin-top:1.25rem; text-transform:uppercase; letter-spacing:0.12em;">digitalbridgegroup.it →</div>
-      </a>
-
-      <a href="https://quematch.it" target="_blank" class="cassetto-card reveal reveal-delay-2" style="text-decoration: none; opacity: 1;">
-        <div class="cassetto-type">HR Tech · AI · Attivo</div>
-        <div class="cassetto-name">QueMatch</div>
-        <p class="cassetto-desc">Recruiting innovativo AI-supported. Filtra i candidati e genera Score e Ranking di affinità con il datore di lavoro: meno tempo di selezione, più precisione.</p>
-        <div style="font-family:'JetBrains Mono',monospace; font-size:0.72rem; color:var(--accent); margin-top:1.25rem; text-transform:uppercase; letter-spacing:0.12em;">quematch.it →</div>
-      </a>
+    <div class="filters rv d2" role="group" aria-label="Filtra i progetti">
+      <button class="chip" data-f="all" aria-pressed="true">Tutti</button>
+      <button class="chip" data-f="attivo" aria-pressed="false">Operativi</button>
+      <button class="chip" data-f="testing" aria-pressed="false">In testing</button>
+      <button class="chip" data-f="cassetto" aria-pressed="false">Nel cassetto</button>
     </div>
- 
-    <div style="margin-top:3.5rem;">
-      <div style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.18em;color:var(--accent2);text-transform:uppercase;margin-bottom:1.5rem;display:flex;align-items:center;gap:1rem;">
-        <span style="display:block;width:16px;height:1px;background:var(--accent2);box-shadow:0 0 4px var(--accent2);"></span>
-        In fase di testing
+
+    <div class="cards rv d3" id="cards">
+      <a class="card" data-c="attivo" href="https://giamor.it" target="_blank" rel="noopener">
+        <div class="card-kind">AI · Hyperautomation · Managed IT</div>
+        <h3>Giamor Group</h3>
+        <p>Startup innovativa su AI, automazione e servizi IT gestiti. L'azienda madre dell'ecosistema.</p>
+        <span class="card-go">giamor.it</span>
+      </a>
+
+      <a class="card" data-c="attivo" href="https://wabbuo.com" target="_blank" rel="noopener">
+        <div class="card-kind">SaaS · Identità digitale</div>
+        <h3>Wabbuo</h3>
+        <p>Un hub unico per la presenza online di professionisti e piccole imprese.</p>
+        <span class="card-go">wabbuo.com</span>
+      </a>
+
+      <a class="card" data-c="attivo" href="https://repartotecnologico.it" target="_blank" rel="noopener">
+        <div class="card-kind">Managed services</div>
+        <h3>Reparto Tecnologico</h3>
+        <p>Il reparto IT esterno delle PMI: infrastruttura, gestione e automazione a canone.</p>
+        <span class="card-go">repartotecnologico.it</span>
+      </a>
+
+      <a class="card" data-c="attivo" href="https://sartorianotarile.it" target="_blank" rel="noopener">
+        <div class="card-kind">Legaltech · BPO</div>
+        <h3>Sartoria Notarile</h3>
+        <p>Back office in outsourcing per studi notarili, con supporto AI ai flussi documentali.</p>
+        <span class="card-go">sartorianotarile.it</span>
+      </a>
+
+      <a class="card" data-c="attivo" href="https://quematch.it" target="_blank" rel="noopener">
+        <div class="card-kind">HR tech · AI</div>
+        <h3>QueMatch</h3>
+        <p>Recruiting AI-supported con score e ranking di affinità candidato-azienda.</p>
+        <span class="card-go">quematch.it</span>
+      </a>
+
+      <div class="card" data-c="attivo">
+        <div class="card-kind">M&amp;A · Valutazione</div>
+        <h3>Atlas</h3>
+        <p>Valutazione d'impresa per PMI con approccio multi-metodo e strategia negoziale annessa.</p>
       </div>
-      <div class="cassetto-grid" style="margin-top:0;">
-        <div class="cassetto-card reveal">
-          <div class="cassetto-type">Procurement · Spin-off di Arkimat</div>
-          <div class="cassetto-name">Arkipay</div>
-          <p class="cassetto-desc">Dynamic discount data-driven con AI applicato alla supply chain. Oggi spin-off di Arkimat, domani startup autonoma.</p>
-        </div>
-        <a href="https://wabbuo.com" target="_blank" class="cassetto-card reveal reveal-delay-1" style="text-decoration: none;">
-          <div class="cassetto-type">SaaS · Identità Digitale</div>
-          <div class="cassetto-name">Wabbuo</div>
-          <p class="cassetto-desc">App per centralizzare e facilitare la presenza web di lavoratori, professionisti e piccole imprese. Un unico hub digitale identitario.</p>
-          <div style="font-family:'JetBrains Mono',monospace; font-size:0.72rem; color:var(--accent); margin-top:1.25rem; text-transform:uppercase; letter-spacing:0.12em;">wabbuo.com →</div>
+
+      <a class="card" data-c="testing" href="https://www.arkimat.com" target="_blank" rel="noopener">
+        <div class="card-kind">E-procurement · In testing</div>
+        <h3>Connect</h3>
+        <p>Nuovo e-procurement integrato: catalogo, ordini e ciclo passivo in un flusso unico. Progetto Arkimat.</p>
+        <span class="card-go">arkimat.com</span>
+      </a>
+
+      <a class="card" data-c="testing" href="https://www.arkimat.com" target="_blank" rel="noopener">
+        <div class="card-kind">Supply chain finance · In testing</div>
+        <h3>Arkipay</h3>
+        <p>Dynamic discount data-driven sulla supply chain, per pagamenti anticipati convenienti su entrambi i lati. Progetto Arkimat.</p>
+        <span class="card-go">arkimat.com</span>
+      </a>
+
+      <div class="card card--quiet" data-c="cassetto">
+        <div class="card-kind">Energy procurement · Progettato</div>
+        <h3>Refuoil</h3>
+        <p>Procurement digitale multifornitore per prodotti petrolchimici. Disegnato nel dettaglio, in attesa di sviluppo.</p>
+      </div>
+
+      <div class="card card--quiet" data-c="cassetto">
+        <div class="card-kind">Finance · Ricerca</div>
+        <h3>Fondo Ricerca</h3>
+        <p>Fondo con logiche di protezione del capitale e costi da ETF, su edge statistici a bassa volatilità.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ METODO ═══ -->
+<section class="band band--alt" id="metodo">
+  <div class="wrap">
+    <div class="eyebrow rv">Metodo</div>
+    <h2 class="h2 rv d1">Dal piano<br><em>al finanziamento.</em></h2>
+    <p class="lead rv d2">Il percorso che seguo quando un'impresa deve crescere e servono i numeri per farlo: un solo interlocutore dalla diagnosi alla messa in produzione.</p>
+
+    <div class="method rv d2">
+      <div class="mrow">
+        <div class="mrow-n">01</div>
+        <h3>Analisi e progettazione</h3>
+        <p>Lettura del progetto di sviluppo, mappatura dei processi da automatizzare, individuazione delle leve tecnologiche e definizione degli obiettivi misurabili.</p>
+      </div>
+      <div class="mrow">
+        <div class="mrow-n">02</div>
+        <h3>Piano economico</h3>
+        <p>Business plan e modello finanziario: conto economico, cash flow, analisi di sostenibilità e scenari. L'investimento viene strutturato con logiche di ritorno verificabili.</p>
+      </div>
+      <div class="mrow">
+        <div class="mrow-n">03</div>
+        <h3>Piano di finanziamento</h3>
+        <p>Individuazione e gestione degli strumenti più convenienti: bandi, agevolazioni, credito bancario e finanza alternativa. Preparazione del dossier e gestione dell'istruttoria.</p>
+      </div>
+      <div class="mrow">
+        <div class="mrow-n">04</div>
+        <h3>Realizzazione</h3>
+        <p>Sviluppo, integrazione dei sistemi AI e di automazione, gestione del progetto fino alla messa in produzione — con le squadre di Giamor Group e Reparto Tecnologico.</p>
+      </div>
+    </div>
+
+    <div class="eyebrow rv" style="margin-top:3.5rem">Settori</div>
+    <div class="sectors rv d1">
+      <span>AI</span><span>Hyperautomation</span><span>Managed IT</span><span>SaaS</span>
+      <span>HR tech</span><span>Legaltech</span><span>Procurement</span>
+      <span>Supply chain finance</span><span>M&amp;A</span><span>PMI italiane</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONTATTI ═══ -->
+<section class="band" id="contatti" style="overflow:hidden">
+  <div class="watermark" aria-hidden="true">LM</div>
+  <div class="wrap" style="position:relative;z-index:1">
+    <div class="eyebrow rv">Contatti</div>
+    <h2 class="h2 rv d1">Se c'è qualcosa<br><em>da costruire, scrivimi.</em></h2>
+    <p class="lead rv d2">Rispondo direttamente. Se l'argomento è un'impresa da avviare, una linea di business da aprire o un piano da portare in banca, meglio ancora.</p>
+
+    <div class="contacts rv d2">
+      <div class="contact">
+        <div class="contact-l">Email</div>
+        <a href="mailto:luca.morozzi@giamor.it">luca.morozzi@giamor.it</a>
+      </div>
+      <div class="contact">
+        <div class="contact-l">Telefono</div>
+        <a href="tel:+393884079916">+39 388 407 9916</a>
+      </div>
+      <div class="contact">
+        <div class="contact-l">LinkedIn</div>
+        <a href="https://www.linkedin.com/in/lucamorozzi/" target="_blank" rel="noopener">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          in/lucamorozzi
         </a>
       </div>
     </div>
   </div>
-</div>
- 
-<!-- NEL CASSETTO -->
-<div id="cassetto" class="section-outer">
-  <div class="section-wrap">
-    <div class="section-label reveal">Visione futura</div>
-    <h2 class="section-title reveal reveal-delay-1">Progetti nel cassetto.</h2>
-    <p class="lead reveal reveal-delay-2" style="color:rgba(180,200,220,0.45);">Progettati. In attesa del momento o del partner giusto.</p>
-    <div class="cassetto-grid">
-      <div class="cassetto-card reveal">
-        <div class="cassetto-type">LegalTech · AI · In pilota</div>
-        <div class="cassetto-name">Sartoria Notarile</div>
-        <p class="cassetto-desc">Servizio innovativo di back office per studi notarili: automatizza ed efficienta il carico operativo dello studio — flussi documentali, gestione degli atti e supporto AI alle attività amministrative e giuridiche. Attualmente in fase pilota.</p>
-      </div>
-      <div class="cassetto-card reveal reveal-delay-1">
-        <div class="cassetto-type">Energy Procurement</div>
-        <div class="cassetto-name">Refuoil</div>
-        <p class="cassetto-desc">Piattaforma innovativa di procurement digitale multifornitore per prodotti petrolchimici. Progettata nel dettaglio, in attesa di sviluppo.</p>
-      </div>
-      <div class="cassetto-card reveal reveal-delay-2">
-        <div class="cassetto-type">Finance</div>
-        <div class="cassetto-name">Fondo Ricerca</div>
-        <p class="cassetto-desc">Fondo d'investimento con logiche innovative di protezione del capitale e costi ETF. Applica principi genetici per creare edge statistici low-volatility.</p>
-      </div>
-      <div class="cassetto-card reveal reveal-delay-3">
-        <div class="cassetto-type">M&amp;A Advisory</div>
-        <div class="cassetto-name">SophAI</div>
-        <p class="cassetto-desc">Tool innovativo per valutare l'enterprise value di PMI italiane. Utile per M&amp;A, accordi tra soci e passaggi ereditari aziendali.</p>
-      </div>
-    </div>
-  </div>
-</div>
- 
-<!-- CONTATTI -->
-<div id="contatti" class="section-outer alt" style="position:relative;overflow:hidden;">
-  <div style="position:absolute;right:-2rem;bottom:-5rem;font-size:28vw;font-weight:800;color:rgba(56,182,255,0.025);line-height:1;pointer-events:none;font-style:italic;letter-spacing:-0.05em;">LM</div>
-  <div class="section-wrap" style="position:relative;z-index:1;">
-    <div class="section-label reveal">Contatti</div>
-    <h2 class="section-title reveal reveal-delay-1">Parliamo di opportunità.</h2>
-    <div class="contact-grid">
-      <div class="contact-item reveal reveal-delay-1">
-        <div class="contact-label">Email — Giamor Group</div>
-        <a href="mailto:luca.morozzi@giamor.it" class="contact-value">luca.morozzi@giamor.it</a>
-      </div>
-      <div class="contact-item reveal reveal-delay-3">
-        <div class="contact-label">Telefono</div>
-        <a href="tel:+393884079916" class="contact-value">+39 388 407 9916</a>
-      </div>
+</section>
 
-      <div class="contact-item reveal reveal-delay-4">
-        <div class="contact-label">LinkedIn</div>
-        <a href="https://www.linkedin.com/in/lucamorozzi/" target="_blank" class="contact-value" style="display:flex;align-items:center;gap:0.6rem;">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;opacity:0.8;"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          linkedin.com/in/lucamorozzi
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
- 
-<!-- FOOTER -->
+<!-- ═══ FOOTER ═══ -->
 <footer>
-  <span>© 2026 Luca Morozzi</span>
-  <span>lucamorozzi.it</span>
+  <span>© <span id="yr">2026</span> Luca Morozzi</span>
   <span>Emilia-Romagna · Italia</span>
+  <a href="#home">lucamorozzi.it ↑</a>
 </footer>
- 
+
 <script>
-  // Custom cursor (elementi nascosti via CSS, logica mantenuta per compatibilità)
-  const cursor = document.getElementById('cursor');
-  const ring   = document.getElementById('cursorRing');
-  let mx=0, my=0, rx=0, ry=0;
-  document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; });
-  (function animCursor() {
-    cursor.style.left = mx+'px'; cursor.style.top = my+'px';
-    rx += (mx-rx)*0.15; ry += (my-ry)*0.15;
-    ring.style.left = rx+'px'; ring.style.top = ry+'px';
-    requestAnimationFrame(animCursor);
-  })();
-  document.querySelectorAll('a, button, .project-card, .role-item, .contact-item, .cassetto-card, .stat-item').forEach(el => {
-    el.addEventListener('mouseenter', () => { ring.style.width='50px'; ring.style.height='50px'; ring.style.borderColor='rgba(56,182,255,0.7)'; });
-    el.addEventListener('mouseleave', () => { ring.style.width='30px'; ring.style.height='30px'; ring.style.borderColor='rgba(56,182,255,0.4)'; });
+(function(){
+  'use strict';
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* anno */
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  /* ── menu mobile ── */
+  var burger = document.getElementById('burger');
+  var links  = document.getElementById('navLinks');
+  burger.addEventListener('click', function(){
+    var open = links.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    burger.setAttribute('aria-label', open ? 'Chiudi il menu' : 'Apri il menu');
   });
- 
-  // Mobile nav
-  document.getElementById('navToggle').addEventListener('click', () => {
-    document.getElementById('navLinks').classList.toggle('open');
-  });
-  document.querySelectorAll('#navLinks a').forEach(a => {
-    a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
-  });
- 
-  // Active nav on scroll
-  const sectionIds = ['home','chi-sono','ruoli','capital-bridge','progetti-attivi','cassetto','contatti'];
-  const navAs = document.querySelectorAll('.nav-links a');
-  function updateActiveNav() {
-    const offset = window.innerHeight * 0.35;
-    let current = sectionIds[0];
-    sectionIds.forEach(id => {
-      const el = document.getElementById(id);
-      if (el && el.getBoundingClientRect().top <= offset) current = id;
+  links.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      links.classList.remove('open');
+      burger.setAttribute('aria-expanded','false');
     });
-    navAs.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current));
-  }
-  window.addEventListener('scroll', updateActiveNav, { passive: true });
-  updateActiveNav();
- 
-  // Reveal on scroll
-  const reveals = document.querySelectorAll('.reveal');
-  if ('IntersectionObserver' in window) {
-    reveals.forEach(el => el.classList.add('pre-reveal'));
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.remove('pre-reveal');
-          io.unobserve(entry.target);
-        }
+  });
+
+  /* ── barra di avanzamento + nav attiva + rail del percorso ── */
+  var bar = document.getElementById('progress');
+  var ids = ['home','cosa-faccio','percorso','ecosistema','metodo','contatti'];
+  var navA = Array.prototype.slice.call(document.querySelectorAll('.nav-links a'));
+  var path = document.querySelector('.path');
+  var fill = document.getElementById('railFill');
+  var steps = Array.prototype.slice.call(document.querySelectorAll('.step'));
+  var ticking = false;
+
+  function onScroll(){
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+
+    var mark = window.innerHeight * 0.35, current = ids[0];
+    ids.forEach(function(id){
+      var el = document.getElementById(id);
+      if (el && el.getBoundingClientRect().top <= mark) current = id;
+    });
+    navA.forEach(function(a){
+      a.classList.toggle('on', a.getAttribute('href') === '#' + current);
+    });
+
+    if (path && fill){
+      var r = path.getBoundingClientRect();
+      var anchor = window.innerHeight * 0.55;
+      var p = (anchor - r.top) / r.height;
+      p = Math.max(0, Math.min(1, p));
+      fill.style.height = (p * 100) + '%';
+      steps.forEach(function(s){
+        var sr = s.getBoundingClientRect();
+        s.classList.toggle('lit', sr.top <= anchor);
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-    reveals.forEach(el => io.observe(el));
+    }
+    ticking = false;
   }
+  window.addEventListener('scroll', function(){
+    if (!ticking){ ticking = true; window.requestAnimationFrame(onScroll); }
+  }, { passive:true });
+  window.addEventListener('resize', onScroll, { passive:true });
+  onScroll();
+
+  /* ── reveal ── */
+  var rv = document.querySelectorAll('.rv');
+  if ('IntersectionObserver' in window && !reduce){
+    rv.forEach(function(el){ el.classList.add('pre'); });
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){ e.target.classList.remove('pre'); io.unobserve(e.target); }
+      });
+    }, { threshold:0.1, rootMargin:'0px 0px -6% 0px' });
+    rv.forEach(function(el){ io.observe(el); });
+  }
+
+  /* ── contatori ── */
+  var nums = document.querySelectorAll('[data-count]');
+  function run(el){
+    var target = parseInt(el.getAttribute('data-count'), 10) || 0;
+    if (reduce){ el.textContent = target; return; }
+    var t0 = null, dur = 900;
+    function frame(t){
+      if (!t0) t0 = t;
+      var k = Math.min((t - t0) / dur, 1);
+      el.textContent = Math.round(target * (1 - Math.pow(1 - k, 3)));
+      if (k < 1) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+  if ('IntersectionObserver' in window){
+    var io2 = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if (e.isIntersecting){ run(e.target); io2.unobserve(e.target); } });
+    }, { threshold:0.5 });
+    nums.forEach(function(n){ io2.observe(n); });
+  } else {
+    nums.forEach(run);
+  }
+
+  /* ── rotatore hero ── */
+  var phrases = [
+    'Fondo aziende.',
+    'Creo linee di business.',
+    'Costruisco team.',
+    'Progetto piani economici.',
+    'Preparo piani di finanziamento.'
+  ];
+  var out = document.getElementById('rot');
+  if (reduce){
+    out.textContent = phrases[0];
+    out.style.borderRight = 'none';
+  } else {
+    var pi = 0, ci = 0, del = false;
+    (function type(){
+      var w = phrases[pi];
+      out.textContent = del ? w.substring(0, ci--) : w.substring(0, ci++);
+      var wait = del ? 34 : 62;
+      if (!del && ci > w.length){ del = true; wait = 1700; }
+      else if (del && ci < 0){ del = false; ci = 0; pi = (pi + 1) % phrases.length; wait = 260; }
+      setTimeout(type, wait);
+    })();
+  }
+
+  /* ── filtri ecosistema ── */
+  var chips = Array.prototype.slice.call(document.querySelectorAll('.chip'));
+  var cards = Array.prototype.slice.call(document.querySelectorAll('#cards .card'));
+  chips.forEach(function(c){
+    c.addEventListener('click', function(){
+      var f = c.getAttribute('data-f');
+      chips.forEach(function(o){ o.setAttribute('aria-pressed', o === c ? 'true' : 'false'); });
+      cards.forEach(function(card){
+        card.classList.toggle('hide', !(f === 'all' || card.getAttribute('data-c') === f));
+      });
+    });
+  });
+})();
 </script>
 </body>
 </html>
