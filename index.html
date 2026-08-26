@@ -185,9 +185,28 @@ nav{
 
 /* ══ HERO ════════════════════════════════════════════ */
 #home{
-  position:relative;min-height:100svh;display:flex;align-items:flex-end;
-  padding-top:calc(var(--nav-h) + 3rem);padding-bottom:clamp(2rem,5vw,4rem);
+  position:relative;min-height:100svh;display:flex;align-items:center;
+  padding-top:calc(var(--nav-h) + 4rem);padding-bottom:clamp(3.5rem,8vw,6rem);
   overflow:hidden;
+}
+/* banner orizzontale in trasparenza, a tutta larghezza */
+.hero-bg{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.hero-bg img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:72% center;
+  filter:grayscale(100%) contrast(1.06) brightness(.8);
+  opacity:.3;
+}
+.hero-bg::before{
+  content:'';position:absolute;inset:0;z-index:1;mix-blend-mode:soft-light;opacity:.45;
+  background-image:radial-gradient(rgba(250,250,250,.5) .8px,transparent .9px);
+  background-size:4px 4px;
+}
+.hero-bg::after{
+  content:'';position:absolute;inset:0;z-index:2;
+  background:
+    linear-gradient(90deg,var(--ink) 0%,rgba(10,10,10,.9) 38%,rgba(10,10,10,.35) 100%),
+    linear-gradient(180deg,var(--ink) 0%,transparent 20%,transparent 60%,var(--ink) 100%);
 }
 .hero-rule{
   position:absolute;inset:0;pointer-events:none;z-index:0;
@@ -198,7 +217,6 @@ nav{
 .hero-inner{
   position:relative;z-index:2;width:100%;max-width:var(--maxw);margin:0 auto;
   padding:0 var(--gutter);
-  display:grid;grid-template-columns:1.35fr .85fr;gap:clamp(2rem,5vw,4.5rem);align-items:end;
 }
 
 .hero-meta{
@@ -231,7 +249,7 @@ nav{
 .rotator::before{content:'';width:.5rem;height:.5rem;background:var(--white);flex:none;transform:translateY(-.15em)}
 .rotator span{border-right:2px solid var(--smoke);padding-right:.15rem;white-space:nowrap;overflow:hidden}
 
-.hero-copy{font-size:1rem;color:var(--smoke);max-width:46ch;line-height:1.8;margin-bottom:2.4rem}
+.hero-copy{font-size:1.02rem;color:var(--ash);max-width:52ch;line-height:1.8;margin-bottom:2.6rem}
 .hero-copy b{color:var(--chalk);font-weight:600}
 
 .btn-row{display:flex;flex-wrap:wrap;gap:.85rem}
@@ -252,8 +270,24 @@ nav{
 .btn--solid::before{background:var(--ink)}
 .btn--solid:hover{color:var(--white);border-color:var(--white)}
 
-/* ritratto con retino tipografico */
-.portrait{position:relative;align-self:end}
+/* ── FASCIA RITRATTO (a metà pagina) ─────────────────── */
+.figband{background:var(--ink-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.figband-inner{
+  max-width:var(--maxw);margin:0 auto;
+  padding:clamp(3.5rem,7vw,6rem) var(--gutter);
+  display:grid;grid-template-columns:.82fr 1.18fr;gap:clamp(2rem,5vw,4.5rem);align-items:center;
+}
+.figband-txt blockquote p{
+  font-family:var(--display);font-variation-settings:'wdth' 104,'wght' 500;
+  font-size:clamp(1.15rem,2.8vw,2.05rem);line-height:1.22;color:var(--white);letter-spacing:-.01em;
+}
+.figband-txt cite{
+  display:block;margin-top:1.1rem;font-style:normal;
+  font-family:var(--mono);font-size:.63rem;letter-spacing:.22em;text-transform:uppercase;color:var(--smoke);
+}
+.figband-txt .lead{margin-top:1.8rem}
+
+.portrait{position:relative}
 .portrait-frame{position:relative;border:1px solid var(--line-2);overflow:hidden;background:var(--ink-2)}
 .portrait-frame img{
   width:100%;height:auto;
@@ -349,8 +383,6 @@ nav{
 .step.lit .step-dot{background:var(--white);border-color:var(--white);transform:scale(1.15)}
 
 .step-head{display:flex;align-items:baseline;flex-wrap:wrap;gap:.9rem;margin-bottom:.7rem}
-.step-n{font-family:var(--mono);font-size:.68rem;letter-spacing:.2em;color:var(--line-2);transition:color .4s var(--ease)}
-.step.lit .step-n{color:var(--smoke)}
 .step-kind{font-family:var(--mono);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--smoke);border:1px solid var(--line);padding:.22rem .5rem}
 .step h3{
   font-family:var(--display);font-variation-settings:'wdth' 115,'wght' 800;
@@ -375,30 +407,6 @@ nav{
   font-size:.98rem;text-transform:uppercase;letter-spacing:.02em;color:var(--white);margin-bottom:.4rem;
 }
 .step-sub span{font-size:.85rem;color:var(--smoke);line-height:1.65}
-
-/* ── BANNER STRIP ────────────────────────────────────── */
-.strip{position:relative;height:clamp(240px,38vw,420px);overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.strip img{
-  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;
-  filter:grayscale(100%) contrast(1.1) brightness(.5);
-}
-.strip::after{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(90deg,rgba(10,10,10,.94) 0%,rgba(10,10,10,.6) 55%,rgba(10,10,10,.3) 100%);
-}
-.strip-txt{
-  position:absolute;inset:0;z-index:2;display:flex;align-items:center;
-  max-width:var(--maxw);margin:0 auto;padding:0 var(--gutter);
-}
-.strip-txt blockquote{max-width:44ch}
-.strip-txt p{
-  font-family:var(--display);font-variation-settings:'wdth' 104,'wght' 500;
-  font-size:clamp(1.15rem,2.9vw,2.15rem);line-height:1.22;color:var(--white);letter-spacing:-.01em;
-}
-.strip-txt cite{
-  display:block;margin-top:1.2rem;font-style:normal;
-  font-family:var(--mono);font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;color:var(--smoke);
-}
 
 /* ── ECOSISTEMA (filtri) ─────────────────────────────── */
 .filters{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:2.4rem}
@@ -516,9 +524,9 @@ footer a:hover{color:var(--white)}
   }
   .nav-links.open{display:flex}
   .burger{display:flex}
-  #home{align-items:center;padding-bottom:5rem}
-  .hero-inner{grid-template-columns:1fr;align-items:start}
-  .portrait{max-width:340px;margin-top:.5rem}
+  #home{padding-bottom:5rem}
+  .figband-inner{grid-template-columns:1fr;gap:2.2rem}
+  .portrait{max-width:400px}
   .stats{grid-template-columns:1fr}
   .stat{border-right:none;border-bottom:1px solid var(--line)}
   .stat:last-child{border-bottom:none}
@@ -533,6 +541,7 @@ footer a:hover{color:var(--white)}
 }
 @media (max-width:560px){
   .hero-rule{background-size:calc(100% / 3) 100%}
+  .hero-bg img{opacity:.2;object-position:65% center}
   .scroll-cue{display:none}
   .portrait{max-width:100%}
 }
@@ -562,7 +571,7 @@ footer a:hover{color:var(--white)}
   </button>
   <ul class="nav-links" id="navLinks">
     <li><a href="#cosa-faccio">Cosa faccio</a></li>
-    <li><a href="#percorso">Percorso</a></li>
+    <li><a href="#progetti">Progetti</a></li>
     <li><a href="#ecosistema">Ecosistema</a></li>
     <li><a href="#metodo">Metodo</a></li>
     <li><a href="#contatti">Contatti</a></li>
@@ -571,6 +580,9 @@ footer a:hover{color:var(--white)}
 
 <!-- ═══ HERO ═══ -->
 <header id="home">
+  <div class="hero-bg" aria-hidden="true">
+    <img src="banner_grayscale.jpg" alt="" width="1400" height="340" fetchpriority="high">
+  </div>
   <div class="hero-rule" aria-hidden="true"></div>
   <div class="hero-inner">
     <div>
@@ -579,21 +591,15 @@ footer a:hover{color:var(--white)}
         <span>Business builder</span>
         <span>Emilia-Romagna · IT</span>
       </div>
+
       <h1 class="hero-name"><b>Luca</b><u>Morozzi</u></h1>
       <div class="rotator" aria-live="off"><span id="rot"></span></div>
       <p class="hero-copy">Fondo aziende e ne costruisco le linee di business: dall'idea al primo cliente, dal team alla struttura finanziaria. <b>Sei realtà avviate</b> tra software, servizi gestiti, legaltech e procurement — e i piani economici che le tengono in piedi.</p>
       <div class="btn-row">
-        <a href="#percorso" class="btn btn--solid"><span>Guarda il percorso</span></a>
+        <a href="#progetti" class="btn btn--solid"><span>Vedi i progetti</span></a>
         <a href="#contatti" class="btn"><span>Parliamone</span></a>
       </div>
     </div>
-
-    <figure class="portrait">
-      <div class="portrait-frame">
-        <img src="portrait_grayscale.png" alt="Ritratto di Luca Morozzi" width="990" height="1330" fetchpriority="high">
-      </div>
-      <figcaption class="portrait-cap"><span>Luca Morozzi</span><span>Fusignano (RA)</span></figcaption>
-    </figure>
   </div>
   <div class="scroll-cue" aria-hidden="true">Scorri</div>
 </header>
@@ -665,11 +671,11 @@ footer a:hover{color:var(--white)}
 </section>
 
 <!-- ═══ PERCORSO — elemento firma ═══ -->
-<section class="band band--alt" id="percorso">
+<section class="band band--alt" id="progetti">
   <div class="wrap">
-    <div class="eyebrow rv">Percorso · In ordine</div>
-    <h2 class="h2 rv d1">Cosa ho costruito,<br><em>nell'ordine in cui l'ho fatto.</em></h2>
-    <p class="lead rv d2">Prima l'azienda madre, poi il prodotto, poi le linee di business che stanno in piedi da sole. Ogni passaggio nasce dal precedente.</p>
+    <div class="eyebrow rv">Progetti</div>
+    <h2 class="h2 rv d1">I progetti<br><em>a cui lavoro.</em></h2>
+    <p class="lead rv d2">Aziende fondate, linee di business aperte e una collaborazione in corso. Ognuna con un suo mercato, un suo team e i suoi numeri.</p>
 
     <div class="path rv d2">
       <div class="rail" aria-hidden="true"><div class="rail-fill" id="railFill"></div></div>
@@ -677,7 +683,6 @@ footer a:hover{color:var(--white)}
       <article class="step">
         <span class="step-dot" aria-hidden="true"></span>
         <div class="step-head">
-          <span class="step-n">01</span>
           <span class="step-kind">Fondazione</span>
         </div>
         <h3><a href="https://giamor.it" target="_blank" rel="noopener">Giamor Group<sup>giamor.it</sup></a></h3>
@@ -687,7 +692,6 @@ footer a:hover{color:var(--white)}
       <article class="step">
         <span class="step-dot" aria-hidden="true"></span>
         <div class="step-head">
-          <span class="step-n">02</span>
           <span class="step-kind">Fondazione</span>
         </div>
         <h3><a href="https://wabbuo.com" target="_blank" rel="noopener">Wabbuo<sup>wabbuo.com</sup></a></h3>
@@ -697,7 +701,6 @@ footer a:hover{color:var(--white)}
       <article class="step">
         <span class="step-dot" aria-hidden="true"></span>
         <div class="step-head">
-          <span class="step-n">03</span>
           <span class="step-kind">Linea di business</span>
         </div>
         <h3><a href="https://repartotecnologico.it" target="_blank" rel="noopener">Reparto Tecnologico<sup>repartotecnologico.it</sup></a></h3>
@@ -707,7 +710,6 @@ footer a:hover{color:var(--white)}
       <article class="step">
         <span class="step-dot" aria-hidden="true"></span>
         <div class="step-head">
-          <span class="step-n">04</span>
           <span class="step-kind">Linea di business</span>
         </div>
         <h3><a href="https://sartorianotarile.it" target="_blank" rel="noopener">Sartoria Notarile<sup>sartorianotarile.it</sup></a></h3>
@@ -717,7 +719,6 @@ footer a:hover{color:var(--white)}
       <article class="step">
         <span class="step-dot" aria-hidden="true"></span>
         <div class="step-head">
-          <span class="step-n">05</span>
           <span class="step-kind">Linea di business</span>
         </div>
         <h3><a href="https://quematch.it" target="_blank" rel="noopener">QueMatch<sup>quematch.it</sup></a></h3>
@@ -727,7 +728,6 @@ footer a:hover{color:var(--white)}
       <article class="step">
         <span class="step-dot" aria-hidden="true"></span>
         <div class="step-head">
-          <span class="step-n">06</span>
           <span class="step-kind">Linea di business</span>
         </div>
         <h3>Atlas</h3>
@@ -737,7 +737,6 @@ footer a:hover{color:var(--white)}
       <article class="step">
         <span class="step-dot" aria-hidden="true"></span>
         <div class="step-head">
-          <span class="step-n">07</span>
           <span class="step-kind">Collaborazione</span>
         </div>
         <h3><a href="https://www.arkimat.com" target="_blank" rel="noopener">Arkimat<sup>arkimat.com</sup></a></h3>
@@ -757,14 +756,22 @@ footer a:hover{color:var(--white)}
   </div>
 </section>
 
-<!-- ═══ STRIP ═══ -->
-<div class="strip">
-  <img src="banner_grayscale.jpg" alt="Luca Morozzi al lavoro" width="1400" height="340" loading="lazy">
-  <div class="strip-txt">
-    <blockquote>
-      <p>Un'azienda non si racconta. Si apre, si fanno i conti, e si vede se sta in piedi.</p>
-      <cite>Metodo di lavoro</cite>
-    </blockquote>
+<!-- ═══ FASCIA RITRATTO ═══ -->
+<div class="figband">
+  <div class="figband-inner">
+    <figure class="portrait rv">
+      <div class="portrait-frame">
+        <img src="portrait_grayscale.png" alt="Ritratto di Luca Morozzi" width="990" height="1330" loading="lazy">
+      </div>
+      <figcaption class="portrait-cap"><span>Luca Morozzi</span><span>Emilia-Romagna · IT</span></figcaption>
+    </figure>
+    <div class="figband-txt rv d1">
+      <blockquote>
+        <p>Un'azienda non si racconta. Si apre, si fanno i conti, e si vede se sta in piedi.</p>
+        <cite>Metodo di lavoro</cite>
+      </blockquote>
+      <p class="lead">Vengo da una formazione quantitativa e ho imparato presto che un modello regge solo se qualcuno lo mette in produzione. Per questo non mi fermo al piano: costruisco la squadra, apro il mercato e resto sui numeri finché la macchina non gira da sola.</p>
+    </div>
   </div>
 </div>
 
@@ -772,8 +779,8 @@ footer a:hover{color:var(--white)}
 <section class="band" id="ecosistema">
   <div class="wrap">
     <div class="eyebrow rv">Ecosistema</div>
-    <h2 class="h2 rv d1">Tutto quello<br><em>che ho in mano.</em></h2>
-    <p class="lead rv d2">Realtà operative, progetti in testing e cose progettate che aspettano il momento giusto. Filtra per stato.</p>
+    <h2 class="h2 rv d1">Uno sguardo<br><em>d'insieme.</em></h2>
+    <p class="lead rv d2">Realtà operative, progetti in fase di testing e cose progettate che aspettano il momento giusto. Puoi filtrare per stato.</p>
 
     <div class="filters rv d2" role="group" aria-label="Filtra i progetti">
       <button class="chip" data-f="all" aria-pressed="true">Tutti</button>
@@ -952,7 +959,7 @@ footer a:hover{color:var(--white)}
 
   /* ── barra di avanzamento + nav attiva + rail del percorso ── */
   var bar = document.getElementById('progress');
-  var ids = ['home','cosa-faccio','percorso','ecosistema','metodo','contatti'];
+  var ids = ['home','cosa-faccio','progetti','ecosistema','metodo','contatti'];
   var navA = Array.prototype.slice.call(document.querySelectorAll('.nav-links a'));
   var path = document.querySelector('.path');
   var fill = document.getElementById('railFill');
